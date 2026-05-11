@@ -1,0 +1,321 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url('../fonts/icomoon78ed.eot?orkqwr');
+  src: url('../fonts/icomoon78ed.eot?orkqwr#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon78ed.ttf?orkqwr') format('truetype'),
+    url('../fonts/icomoon78ed.woff?orkqwr') format('woff'),
+    url('../fonts/icomoon78ed.svg?orkqwr#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
+.icon-clock:before {
+  content: "\e900";
+}
+
+.icon-phone-call:before {
+  content: "\e901";
+}
+
+.icon-email:before {
+  content: "\e902";
+}
+
+.icon-icon-15281962:before {
+  content: "\e903";
+}
+
+.icon-search-interface-symbol:before {
+  content: "\e904";
+}
+
+.icon-plus:before {
+  content: "\e905";
+}
+
+.icon-minus-sign:before {
+  content: "\e906";
+}
+
+.icon-health-professional:before {
+  content: "\e907";
+}
+
+.icon-brain:before {
+  content: "\e908";
+}
+
+.icon-human:before {
+  content: "\e909";
+}
+
+.icon-x-ray:before {
+  content: "\e90a";
+}
+
+.icon-play-button-arrowhead:before {
+  content: "\e90b";
+}
+
+.icon-checklist .path1:before {
+  content: "\e90c";
+  color: rgb(37, 104, 239);
+}
+
+.icon-checklist .path2:before {
+  content: "\e90d";
+  margin-left: -1em;
+  color: rgb(255, 252, 238);
+}
+
+.icon-check-mark:before {
+  content: "\e90e";
+}
+
+.icon-check:before {
+  content: "\e90f";
+}
+
+.icon-award-symbol:before {
+  content: "\e910";
+}
+
+.icon-hydrotherapy:before {
+  content: "\e911";
+}
+
+.icon-syringe:before {
+  content: "\e912";
+}
+
+.icon-phone:before {
+  content: "\e913";
+}
+
+.icon-tooth:before {
+  content: "\e914";
+}
+
+.icon-facebook-app-symbol:before {
+  content: "\e915";
+}
+
+.icon-twitter:before {
+  content: "\e916";
+}
+
+.icon-linkedin:before {
+  content: "\e917";
+}
+
+.icon-instagram:before {
+  content: "\e918";
+}
+
+.icon-user:before {
+  content: "\e919";
+}
+
+.icon-calendar:before {
+  content: "\e91a";
+}
+
+.icon-calendar-1:before {
+  content: "\e91b";
+}
+
+.icon-video:before {
+  content: "\e91c";
+}
+
+.icon-menu:before {
+  content: "\e91d";
+}
+
+.icon-shopping-cart:before {
+  content: "\e91e";
+}
+
+.icon-chevron-double-up:before {
+  content: "\e91f";
+}
+
+.icon-eye-drops:before {
+  content: "\e920";
+}
+
+.icon-eye-examination:before {
+  content: "\e921";
+}
+
+.icon-ophthalmology:before {
+  content: "\e922";
+}
+
+.icon-eye:before {
+  content: "\e923";
+}
+
+.icon-hyperopia:before {
+  content: "\e924";
+}
+
+.icon-vision:before {
+  content: "\e925";
+}
+
+.icon-check-1:before {
+  content: "\e926";
+}
+
+.icon-eye-exam:before {
+  content: "\e927";
+}
+
+.icon-like:before {
+  content: "\e928";
+}
+
+.icon-healthcare:before {
+  content: "\e929";
+}
+
+.icon-trophy:before {
+  content: "\e92a";
+}
+
+.icon-customer-review:before {
+  content: "\e92b";
+}
+
+.icon-down-arrow:before {
+  content: "\e92c";
+}
+
+.icon-arrow-up:before {
+  content: "\e92d";
+}
+
+.icon-like-1:before {
+  content: "\e92e";
+}
+
+.icon-add-to-cart:before {
+  content: "\e92f";
+}
+
+.icon-eye-1:before {
+  content: "\e930";
+}
+
+.icon-data-transfer:before {
+  content: "\e931";
+}
+
+.icon-star:before {
+  content: "\e932";
+}
+
+.icon-facial-laser:before {
+  content: "\e933";
+}
+
+.icon-call-for-help:before {
+  content: "\e934";
+}
+
+.icon-phone-call-1:before {
+  content: "\e935";
+}
+
+.icon-first-aid-kit:before {
+  content: "\e936";
+}
+
+.icon-medical-team:before {
+  content: "\e937";
+}
+
+.icon-clock-1:before {
+  content: "\e938";
+}
+
+.icon-orthopaedics:before {
+  content: "\e939";
+}
+
+.icon-heart:before {
+  content: "\e93a";
+}
+
+.icon-intensive-care-unit:before {
+  content: "\e93b";
+}
+
+.icon-maternity:before {
+  content: "\e93c";
+}
+
+.icon-neurology:before {
+  content: "\e93d";
+}
+
+.icon-medicine:before {
+  content: "\e93e";
+}
+
+.icon-dermatology:before {
+  content: "\e93f";
+}
+
+.icon-old-woman:before {
+  content: "\e940";
+}
+
+.icon-physical-therapy:before {
+  content: "\e941";
+}
+
+.icon-heart-rate:before {
+  content: "\e942";
+}
+
+.icon-pharmacy:before {
+  content: "\e943";
+}
+
+.icon-maps-and-flags:before {
+  content: "\e944";
+}
+
+.icon-location:before {
+  content: "\e945";
+}
+
+.icon-pin:before {
+  content: "\e946";
+}
+
+.icon-mail:before {
+  content: "\e947";
+}

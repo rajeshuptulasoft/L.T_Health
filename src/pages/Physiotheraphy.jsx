@@ -1,0 +1,1808 @@
+import React, { useEffect } from "react";
+import { SiteHeader } from "../components/SiteHeader";
+import { SiteFooter } from "../components/SiteFooter";
+import { FloatingSupport } from "../components/FloatingSupport";
+import { NewsletterSection } from "../components/NewsletterSection";
+
+const PHYSIO_STYLESHEETS = [
+  "/assets/css/bootstrap.min.css",
+  "/assets/css/animate.min.css",
+  "/assets/css/custom-animate.css",
+  "/assets/css/swiper.min.css",
+  "/assets/css/font-awesome-all.css",
+  "/assets/css/jarallax.css",
+  "/assets/css/jquery.magnific-popup.css",
+  "/assets/css/odometer.min.css",
+  "/assets/css/flaticon.css",
+  "/assets/css/owl.carousel.min.css",
+  "/assets/css/owl.theme.default.min.css",
+  "/assets/css/nice-select.css",
+  "/assets/css/jquery-ui.css",
+  "/assets/css/twentytwenty.css",
+  "/assets/css/aos.css",
+  "/assets/css/timePicker.css",
+  "/assets/css/style.css",
+  "/assets/css/responsive.css",
+];
+
+const PHYSIO_INLINE_CSS = `:root {
+            --mediplace-base: #05bdec;
+            --mediplace-base-rgb: 5, 189, 236;
+            --mediplace-black: #16a392;
+            --mediplace-black-rgb: 103, 148, 53;
+        }
+
+        .thm-btn {
+            background: linear-gradient(135deg, #05bdec 0%, #16a392 100%);
+            border: 0;
+            border-radius: 10px;
+            box-shadow: 0 10px 24px rgba(5, 189, 236, 0.25);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+        }
+
+        .thm-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 26px rgba(103, 148, 53, 0.28);
+            filter: saturate(1.05);
+        }
+
+        .main-menu .main-menu__list>li>a,
+        .stricky-header .main-menu__list>li>a,
+        .main-menu .main-menu__list>li:hover>a,
+        .main-menu .main-menu__list>li.current>a,
+        .stricky-header .main-menu__list>li:hover>a,
+        .stricky-header .main-menu__list>li.current>a {
+            color: #000000 !important;
+        }
+
+        .main-menu .main-menu__list>li.services-dropdown>a {
+            font-weight: 700;
+            color: var(--mediplace-black);
+        }
+
+        .main-menu .main-menu__list>li.services-dropdown>ul {
+            width: 560px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            padding: 14px;
+            border-radius: 14px;
+            border: 1px solid rgba(5, 189, 236, 0.22);
+            box-shadow: 0 16px 36px rgba(5, 189, 236, 0.15);
+        }
+
+        .main-menu .main-menu__list>li.services-dropdown>ul>li {
+            margin: 0;
+        }
+
+        .main-menu .main-menu__list>li.services-dropdown>ul>li>a {
+            border-radius: 10px;
+            min-height: 42px;
+            display: flex;
+            align-items: center;
+            padding: 10px 12px;
+            font-weight: 600;
+            line-height: 1.35;
+            color: #1f2b36;
+            transition: all 0.25s ease;
+        }
+
+        .main-menu .main-menu__list>li.services-dropdown>ul>li>a:hover {
+            background: linear-gradient(135deg, rgba(5, 189, 236, 0.14), rgba(103, 148, 53, 0.14));
+            color: var(--mediplace-black);
+            transform: translateX(2px);
+        }
+
+        .about-three {
+            background: linear-gradient(135deg, rgba(5, 189, 236, 0.1) 0%, rgba(103, 148, 53, 0.12) 100%);
+            border-top: 1px solid rgba(5, 189, 236, 0.2);
+            border-bottom: 1px solid rgba(103, 148, 53, 0.2);
+        }
+
+        .about-three .section-title__tagline,
+        .about-three__content h4,
+        .about-three__points li {
+            color: #1a2b36;
+        }
+
+        .about-three__experience-box {
+            background: linear-gradient(135deg, #05bdec 0%, #679435 100%);
+            box-shadow: 0 12px 28px rgba(5, 189, 236, 0.25);
+        }
+
+        .services-three {
+            background: linear-gradient(180deg, rgba(5, 189, 236, 0.08) 0%, rgba(255, 255, 255, 1) 100%);
+        }
+
+        .services-three__single-inner,
+        .process-two__single,
+        .benefits-one__tab-buttons-single,
+        .blog-three__single {
+            border-radius: 14px;
+            border: 1px solid rgba(5, 189, 236, 0.2);
+            box-shadow: 0 10px 24px rgba(5, 189, 236, 0.09);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .services-three__single-inner:hover,
+        .process-two__single:hover,
+        .benefits-one__tab-buttons-single:hover,
+        .blog-three__single:hover {
+            transform: translateY(-5px);
+            border-color: rgba(103, 148, 53, 0.45);
+            box-shadow: 0 16px 34px rgba(103, 148, 53, 0.16);
+        }
+
+        .services-three__icon span,
+        .process-two__count,
+        .benefits-one .tab-buttons .tab-btn.active-btn .benefits-one__tab-buttons-single,
+        .blog-three__date {
+            background: linear-gradient(135deg, #05bdec 0%, #679435 100%);
+            color: #ffffff;
+        }
+
+        .section-title__title span,
+        .services-three__title a:hover,
+        .benefits-one__content-right-title,
+        .blog-three__title a:hover {
+            color: #679435 !important;
+        }
+
+        .discount-one {
+            background: linear-gradient(130deg, rgba(5, 189, 236, 0.85) 0%, rgba(103, 148, 53, 0.9) 100%);
+        }
+
+        .site-footer-three {
+            background: linear-gradient(180deg, #0f1e2c 0%, #162d3d 55%, #1f3f2f 100%);
+        }
+
+        .site-footer-three a:hover,
+        .site-footer-three__newsletter-btn {
+            color: #05bdec !important;
+        }
+
+        @media (max-width: 1199px) {
+            .main-menu .main-menu__list>li.services-dropdown>ul {
+                width: 100%;
+                display: block;
+                padding: 0;
+                border: 0;
+                box-shadow: none;
+            }
+        }
+
+        .lt-section {
+            padding: 110px 0;
+            background: #f8fafb;
+        }
+
+        .lt-section.alt {
+            background: #ffffff;
+        }
+
+        .lt-section.lt-why-section {
+            background: #fff3d9;
+        }
+
+        .lt-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: #eaf8f6;
+            color: #149a8a;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .lt-title {
+            font-size: 54px;
+            line-height: 1.08;
+            color: #0f2f4f;
+            margin: 0 0 14px;
+            font-weight: 700;
+        }
+
+        .lt-subtext {
+            color: #6d7e8e;
+            font-size: 17px;
+            line-height: 1.8;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .lt-card {
+            background: #fff;
+            border: 1px solid #edf2f6;
+            border-radius: 20px;
+            box-shadow: 0 8px 28px rgba(10, 39, 71, 0.06);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .lt-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 34px rgba(10, 39, 71, 0.1);
+        }
+
+        .lt-why-grid .lt-card {
+            text-align: center;
+            padding: 34px 24px 30px;
+            height: 100%;
+        }
+
+        .lt-icon {
+            width: 58px;
+            height: 58px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: #17b09b;
+            background: #eaf8f6;
+            font-size: 20px;
+        }
+
+        .lt-why-grid h4 {
+            font-size: 28px;
+            color: #123555;
+            margin: 0 0 12px;
+        }
+
+        .lt-why-grid p {
+            margin: 0;
+            color: #6d7e8e;
+            font-size: 16px;
+            line-height: 1.75;
+        }
+
+        .lt-services-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 20px;
+            margin-bottom: 36px;
+        }
+
+        .lt-nav {
+            display: flex;
+            gap: 12px;
+        }
+
+        .lt-nav .nav-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid #d8e3ec;
+            background: #fff;
+            color: #2f4c67;
+            display: grid;
+            place-items: center;
+        }
+
+        .lt-nav .nav-btn.active {
+            color: #fff;
+            border-color: #16a392;
+            background: #16a392;
+        }
+
+        .lt-service-card {
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .lt-services-slider {
+            padding: 8px 4px 18px;
+        }
+
+        .lt-services-slider .swiper-slide {
+            height: auto;
+        }
+
+        .lt-services-slider .lt-card {
+            height: 100%;
+        }
+
+        .lt-thumb {
+            height: 230px;
+            background: linear-gradient(145deg, #d8eff3 0%, #c8e4e9 100%);
+            border-bottom: 1px solid #ebf1f5;
+        }
+
+        .lt-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            display: block;
+        }
+
+        .lt-service-content,
+        .lt-blog-content {
+            padding: 26px 24px 24px;
+        }
+
+        .lt-eyebrow {
+            margin: 0 0 10px;
+            color: #16a392;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+        }
+
+        .lt-service-card h4,
+        .lt-blog-card h4 {
+            margin: 0 0 10px;
+            font-size: 34px;
+            line-height: 1.2;
+            color: #123555;
+        }
+
+        .lt-service-card p,
+        .lt-blog-card p,
+        .lt-who-content p {
+            margin: 0;
+            color: #6d7e8e;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .lt-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 14px;
+            color: #16a392;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .lt-benefits-slider {
+            padding: 8px 4px 18px;
+        }
+
+        .lt-benefits-slider .swiper-slide {
+            height: auto;
+        }
+
+        .lt-benefits-slider .lt-card {
+            height: 100%;
+        }
+
+        .lt-benefits-points {
+            list-style: none;
+            padding: 0;
+            margin: 14px 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .lt-benefits-points li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #6d7e8e;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .lt-benefits-points li i {
+            color: #16a392;
+            margin-top: 4px;
+            flex: 0 0 auto;
+        }
+
+        /* Benefits redesign: restore original layout, hide temporary slider */
+        section.benefits-one .section-title,
+        section.benefits-one .benefits-one__inner {
+            display: block;
+        }
+
+        section.benefits-one .lt-benefits-replacement {
+            display: none;
+        }
+
+        section.benefits-one {
+            background: #ffffff;
+        }
+
+        section.benefits-one .section-title__tagline {
+            color: #16a392;
+            font-weight: 700;
+            letter-spacing: .04em;
+        }
+
+        section.benefits-one .section-title__title,
+        section.benefits-one .benefits-one__content-right-title {
+            color: #123555;
+        }
+
+        section.benefits-one .benefits-one__tab-buttons-single {
+            border-radius: 18px;
+            border: 1px solid #edf2f6;
+            box-shadow: 0 8px 28px rgba(10, 39, 71, 0.06);
+            color: #123555;
+        }
+
+        section.benefits-one .tab-buttons .tab-btn.active-btn .benefits-one__tab-buttons-single {
+            background: #fff7ea;
+            border-color: rgba(22, 163, 146, 0.25);
+            box-shadow: 0 14px 32px rgba(22, 163, 146, 0.12);
+        }
+
+        .lt-benefit-tab-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: inline-grid;
+            place-items: center;
+            background: #eaf8f6;
+            color: #16a392;
+            font-size: 20px;
+        }
+
+        section.benefits-one .tab-buttons .tab-btn.active-btn .lt-benefit-tab-icon {
+            background: #16a392;
+            color: #ffffff;
+        }
+
+        section.benefits-one .benefits-one__tab-buttons-single span {
+            font-size: 16px;
+            font-weight: 700;
+            color: #123555;
+        }
+
+        section.benefits-one .benefits-one__content-right-text,
+        section.benefits-one .benefits-one__points li .text p {
+            color: #6d7e8e;
+        }
+
+        section.benefits-one .benefits-one__points li .icon span {
+            color: #16a392;
+        }
+
+        section.benefits-one .benefits-one__content-img img,
+        section.benefits-one .benefits-one__content-small-img img {
+            object-fit: cover;
+        }
+
+        .lt-gap-section {
+            background: linear-gradient(180deg, #f7fbfc 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lt-gap-section::before {
+            content: "";
+            position: absolute;
+            top: -120px;
+            right: -120px;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(22, 163, 146, 0.14) 0%, rgba(22, 163, 146, 0) 70%);
+            pointer-events: none;
+        }
+
+        .lt-gap-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+            gap: 28px;
+            align-items: start;
+            position: relative;
+            z-index: 1;
+        }
+
+        .lt-gap-cards {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .lt-gap-card {
+            overflow: hidden;
+            cursor: pointer;
+            border-radius: 22px;
+            border: 1px solid #e8eef3;
+            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+        }
+
+        .lt-gap-card.is-active {
+            border-color: rgba(22, 163, 146, 0.3);
+            box-shadow: 0 16px 34px rgba(22, 163, 146, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .lt-gap-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .lt-gap-card .lt-thumb {
+            height: 240px;
+            border-bottom: 0;
+        }
+
+        .lt-gap-card .lt-service-content {
+            padding: 20px 20px 22px;
+        }
+
+        .lt-gap-card h4 {
+            font-size: 22px;
+            margin: 0 0 8px;
+            color: #123555;
+        }
+
+        .lt-gap-card p {
+            color: #6d7e8e;
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .lt-gap-detail {
+            padding: 28px;
+            border-radius: 28px;
+            border: 1px solid #e8eef3;
+            box-shadow: 0 18px 40px rgba(10, 39, 71, 0.08);
+            background: #ffffff;
+            position: sticky;
+            top: 24px;
+        }
+
+        .lt-gap-detail-media {
+            border-radius: 22px;
+            overflow: hidden;
+            background: #eef5f7;
+            margin-bottom: 24px;
+        }
+
+        .lt-gap-detail-media img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .lt-gap-detail h3 {
+            color: #123555;
+            font-size: 40px;
+            line-height: 1.15;
+            margin: 0 0 14px;
+        }
+
+        .lt-gap-detail p {
+            color: #6d7e8e;
+            font-size: 16px;
+            line-height: 1.85;
+            margin: 0;
+        }
+
+        .lt-gap-points {
+            list-style: none;
+            padding: 0;
+            margin: 18px 0 0;
+            display: grid;
+            gap: 10px;
+        }
+
+        .lt-gap-points li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            color: #6d7e8e;
+            font-size: 15px;
+            line-height: 1.65;
+        }
+
+        .lt-gap-points i {
+            color: #16a392;
+            margin-top: 4px;
+        }
+
+        .lt-about-values {
+            margin-top: 28px;
+        }
+
+        .lt-about-values .lt-card {
+            padding: 22px 20px;
+            height: 100%;
+        }
+
+        .lt-about-values h4 {
+            font-size: 20px;
+            color: #123555;
+            margin: 0 0 10px;
+        }
+
+        .lt-about-values p {
+            margin: 0;
+            color: #6d7e8e;
+            line-height: 1.7;
+        }
+
+        .lt-gap-topline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 16px;
+        }
+
+        .lt-gap-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            background: #f2fbf8;
+            border: 1px solid rgba(22, 163, 146, 0.16);
+            border-radius: 999px;
+            color: #16a392;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .04em;
+        }
+
+        .lt-gap-badge i {
+            font-size: 14px;
+        }
+
+        .lt-gap-stat {
+            min-width: 110px;
+            text-align: right;
+        }
+
+        .lt-gap-stat strong {
+            display: block;
+            color: #123555;
+            font-size: 32px;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .lt-gap-stat span {
+            color: #7f91a0;
+            font-size: 13px;
+            letter-spacing: .04em;
+        }
+
+        .lt-gap-detail.is-switching {
+            opacity: .82;
+            transform: translateY(2px);
+        }
+
+        .lt-blog-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            align-items: center;
+            margin-bottom: 34px;
+        }
+
+        .lt-ghost-btn {
+            border: 1px solid #87c5ba;
+            color: #16a392;
+            background: #fff;
+            border-radius: 999px;
+            padding: 10px 20px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .lt-blog-meta {
+            margin: 0 0 12px;
+            color: #8da0b0;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .lt-who-wrap {
+            display: grid;
+            gap: 36px;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+        }
+
+        .lt-who-media {
+            background: linear-gradient(145deg, #d8eff3 0%, #c4dfe8 100%);
+            border-radius: 24px;
+            min-height: 390px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #e8f0f3;
+        }
+
+        .lt-who-media img {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 240px;
+            width: 48%;
+            opacity: .95;
+            filter: drop-shadow(0 18px 24px rgba(8, 36, 62, .18));
+        }
+
+        .lt-who-content .lt-subtext {
+            margin: 0;
+            max-width: 100%;
+        }
+
+        .lt-testimonial-card {
+            padding: 32px 28px;
+            height: 100%;
+        }
+
+        .lt-quote {
+            color: #4f6578;
+            font-size: 18px;
+            line-height: 1.8;
+            margin: 0 0 22px;
+        }
+
+        .lt-author {
+            margin: 0;
+            color: #123555;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .lt-role {
+            margin: 4px 0 0;
+            color: #16a392;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .lt-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+        }
+
+        .lt-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #d5e0ea;
+        }
+
+        .lt-dots span.active {
+            background: #2b90ff;
+        }
+
+        @media (max-width: 991px) {
+            .lt-title {
+                font-size: 40px;
+            }
+
+            .lt-services-header,
+            .lt-blog-head {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .lt-who-wrap {
+                grid-template-columns: 1fr;
+            }
+
+            .lt-gap-layout,
+            .lt-gap-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .lt-gap-card .lt-thumb {
+                height: 240px;
+            }
+
+            .lt-gap-detail {
+                position: static;
+            }
+
+            .lt-gap-topline {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .lt-gap-stat {
+                text-align: left;
+            }
+        }
+
+        .chat-icon {
+            position: fixed;
+            right: 31px;
+            bottom: 3%;
+            z-index: 99999999;
+        }
+
+        .chat-icon .chat-toggler {
+            cursor: pointer;
+            width: 55px;
+            height: 55px;
+            border: 0;
+            border-radius: 50%;
+            background: #05bdec;
+            color: #ffffff;
+            font-size: 24px;
+            box-shadow: 0 6px 9px rgb(0 0 0 / 5%), 0 4px 5px rgb(0 0 0 / 5%);
+        }
+
+        #whatsappbtn {
+            cursor: pointer;
+            position: fixed;
+            bottom: 3%;
+            left: 31px;
+            z-index: 99999999;
+            padding-top: 8px;
+            background: #4fcc5d;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            text-align: center;
+            box-shadow: 0 6px 9px rgb(0 0 0 / 5%), 0 4px 5px rgb(0 0 0 / 5%);
+        }
+
+        #whatsappbtn img {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+        }
+
+        #lt-chatbot {
+            position: fixed;
+            left: 31px;
+            bottom: 95px;
+            z-index: 99999998;
+            font-family: "Manrope", sans-serif;
+        }
+
+        .lt-chatbot-toggle {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: 0;
+            background: #ff6b35;
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer;
+            box-shadow: 0 6px 9px rgb(0 0 0 / 8%), 0 4px 5px rgb(0 0 0 / 6%);
+        }
+
+        .lt-chatbot-panel {
+            width: 320px;
+            height: 430px;
+            margin-bottom: 12px;
+            background: #fff;
+            border: 1px solid #dce8ef;
+            border-radius: 16px;
+            box-shadow: 0 18px 40px rgba(10, 39, 71, 0.18);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .lt-chatbot-panel.is-open {
+            display: flex;
+        }
+
+        .lt-chatbot-header {
+            background: linear-gradient(135deg, #ff7f50 0%, #ff6b35 100%);
+            color: #fff;
+            padding: 12px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .lt-chatbot-header h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .lt-chatbot-close {
+            border: 0;
+            background: transparent;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .lt-chatbot-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 12px;
+            background: #f5f8fb;
+        }
+
+        .lt-chatbot-msg {
+            max-width: 84%;
+            padding: 10px 12px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .lt-chatbot-msg.bot {
+            background: #fff;
+            border: 1px solid #dce8ef;
+            color: #1f2b36;
+        }
+
+        .lt-chatbot-msg.user {
+            margin-left: auto;
+            background: #ff6b35;
+            color: #fff;
+        }
+
+        .lt-chatbot-form {
+            display: flex;
+            gap: 8px;
+            padding: 10px;
+            border-top: 1px solid #e4edf3;
+            background: #fff;
+        }
+
+        .lt-chatbot-input {
+            flex: 1;
+            border: 1px solid #d6e3ec;
+            border-radius: 10px;
+            padding: 9px 10px;
+            font-size: 14px;
+        }
+
+        .lt-chatbot-send {
+            border: 0;
+            border-radius: 10px;
+            background: #ff6b35;
+            color: #fff;
+            padding: 0 14px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* Visual polish */
+        body {
+            color: #25384a;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        .lt-section {
+            padding: 96px 0;
+        }
+
+        .section-title {
+            margin-bottom: 42px;
+        }
+
+        .section-title__title {
+            font-size: clamp(30px, 4vw, 52px);
+            line-height: 1.15;
+        }
+
+        .lt-title {
+            font-size: clamp(34px, 4.3vw, 56px);
+            line-height: 1.12;
+        }
+
+        .lt-subtext {
+            max-width: 820px;
+        }
+
+        .lt-card,
+        .lt-gap-card,
+        .benefits-one__tab-buttons-single,
+        .process-two__single,
+        .blog-three__single {
+            border-radius: 18px;
+        }
+
+        .lt-service-card h4,
+        .lt-blog-card h4 {
+            font-size: clamp(22px, 2.2vw, 32px);
+        }
+
+        .lt-link {
+            text-decoration: none;
+        }
+
+        .lt-thumb img,
+        .lt-gap-detail-image img {
+            transition: transform .45s ease;
+        }
+
+        .lt-service-card:hover .lt-thumb img,
+        .lt-gap-card:hover .lt-thumb img {
+            transform: scale(1.04);
+        }
+
+        @media (max-width: 1199px) {
+            .lt-section {
+                padding: 84px 0;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .lt-services-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .lt-section {
+                padding: 72px 0;
+            }
+
+            .lt-service-content,
+            .lt-blog-content {
+                padding: 20px 18px 20px;
+            }
+        }
+
+        /* Physiotherapy landing design system */
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-soft {
+            background: #f5fbfd;
+        }
+
+        .hero {
+            background: linear-gradient(130deg, #ecf9ff 0%, #f8fffd 55%, #eef7f4 100%);
+            border-top: 1px solid #e2edf3;
+            border-bottom: 1px solid #e2edf3;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+            gap: 30px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 14px;
+            background: rgba(22, 163, 146, 0.12);
+            color: #128a7b;
+            border: 1px solid rgba(22, 163, 146, 0.22);
+            border-radius: 999px;
+            padding: 7px 14px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(34px, 4.5vw, 58px);
+            line-height: 1.08;
+            margin: 0 0 14px;
+            color: #113250;
+            font-weight: 800;
+        }
+
+        .hero p {
+            color: #607486;
+            font-size: 17px;
+            line-height: 1.75;
+        }
+
+        .hero-list {
+            margin: 18px 0 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .hero-list li {
+            position: relative;
+            padding-left: 28px;
+            color: #20425b;
+            font-weight: 600;
+        }
+
+        .hero-list li::before {
+    content: "✔"; /* tick symbol */
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #28a745; /* adjust color */
+    font-size: 16px;
+}
+
+        .hero-box {
+            background: #fff3d9;
+            border: 1px solid #dcebf3;
+            border-radius: 18px;
+            box-shadow: 0 18px 40px rgba(16, 42, 67, 0.08);
+            padding: 26px;
+        }
+
+        .hero-box h3 {
+            color: #123555;
+            margin-bottom: 2px;
+            font-size: 28px;
+        }
+
+        .grid-2,
+        .grid-3,
+        .grid-4 {
+            display: grid;
+            gap: 20px;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #e2edf3;
+            border-radius: 16px;
+            box-shadow: 0 10px 24px rgba(14, 41, 66, 0.06);
+            padding: 24px;
+            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+            height: 100%;
+        }
+
+        .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 
+        0 8px 16px rgba(14, 41, 66, 0.08),
+        0 20px 40px rgba(14, 41, 66, 0.12);
+    border-color: #d0e3ef;
+}
+
+        .card h3 {
+            margin: 0 0 10px;
+            color: #123555;
+            font-size: 24px;
+            line-height: 1.25;
+        }
+
+        .card p {
+            margin: 0;
+            color: #667b8d;
+            line-height: 1.75;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            margin: 0 auto 14px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, #05bdec 0%, #16a392 100%);
+            color: #fff;
+            font-weight: 800;
+            font-size: 16px;
+        }
+
+        .faq-item {
+            background: #fff;
+            border: 1px solid #deebf2;
+            border-radius: 14px;
+            padding: 20px 22px;
+            box-shadow: 0 8px 20px rgba(14, 41, 66, 0.05);
+        }
+
+        .faq-item+.faq-item {
+            margin-top: 14px;
+        }
+
+        .faq-item h4 {
+            margin-bottom: 8px;
+            color: #143857;
+            font-size: 20px;
+        }
+
+        .faq-item summary {
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            font-weight: 700;
+            color: #143857;
+            font-size: 20px;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: "+";
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 18px;
+            line-height: 1;
+            color: #16a392;
+            border: 1px solid rgba(22, 163, 146, 0.35);
+            flex: 0 0 auto;
+        }
+
+        .faq-item[open] summary::after {
+            content: "-";
+        }
+
+        .faq-item .faq-answer {
+            margin-top: 10px;
+            color: #667b8d;
+            line-height: 1.75;
+        }
+
+        .testimonial .name {
+            display: block;
+            margin-top: 12px;
+            color: #143857;
+            font-weight: 800;
+        }
+
+        .testimonial .meta {
+            display: block;
+            color: #6b8091;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .cta {
+            background: linear-gradient(130deg, #0ba8d0 0%, #128b75 100%);
+            color: #fff;
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: #fff;
+            margin-bottom: 12px;
+            font-size: clamp(30px, 4vw, 48px);
+        }
+
+        .cta p {
+            color: rgba(255, 255, 255, .92);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn.btn-primary {
+            background: #fff;
+            color: #117369;
+            border: 0;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            font-weight: 800;
+            box-shadow: 0 14px 28px rgba(8, 47, 41, 0.22);
+            text-decoration: none;
+        }
+
+        .btn.btn-primary:hover {
+            color: #0f6a61;
+            transform: translateY(-2px);
+        }
+
+        .form-box {
+            margin: 24px auto 0;
+            max-width: 520px;
+            background: #fff;
+            border: 1px solid #dceaf2;
+            border-radius: 14px;
+            box-shadow: 0 18px 34px rgba(10, 39, 71, 0.14);
+            padding: 22px;
+            text-align: left;
+        }
+
+        .field {
+            margin-bottom: 12px;
+        }
+
+        .field label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #2d4458;
+        }
+
+        .field input {
+            width: 100%;
+            border: 1px solid #cfe0ea;
+            border-radius: 10px;
+            padding: 10px 12px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 991px) {
+            .section {
+                padding: 72px 0;
+            }
+
+            .hero-grid,
+            .grid-4,
+            .grid-3,
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }`;
+
+export const Physiotheraphy = () => {
+  useEffect(() => {
+    document.title = "Physiotherapy | L.T Way to Healthcare";
+
+    PHYSIO_STYLESHEETS.forEach((href) => {
+      const existing = document.querySelector(`link[data-physio-css="${href}"]`);
+      if (existing) return;
+
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = href;
+      link.setAttribute("data-physio-css", href);
+      document.head.appendChild(link);
+    });
+  }, []);
+
+  return (
+    <>
+      <style dangerouslySetInnerHTML={{ __html: PHYSIO_INLINE_CSS }} />
+
+    <div className="custom-cursor__cursor"></div>
+    <div className="custom-cursor__cursor-two"></div>
+
+
+
+
+    <div className="chat-icon"><button type="button" className="chat-toggler"><i className="fa fa-comment"></i></button></div>
+    <a id="whatsappbtn" href="https://api.whatsapp.com/send?phone=919090050151" target="_blank">
+        <img src="/assets/images/icon/whatsapp.png" alt="WhatsApp" />
+    </a>
+    <div id="lt-chatbot">
+        <div className="lt-chatbot-panel" id="ltChatPanel">
+            <div className="lt-chatbot-header">
+                <h4>L.T Care Assistant</h4>
+                <button type="button" className="lt-chatbot-close" id="ltChatClose"><i className="fas fa-times"></i></button>
+            </div>
+            <div className="lt-chatbot-messages" id="ltChatMessages">
+                <div className="lt-chatbot-msg bot">Hi! Welcome to L.T Way to Healthcare. Ask me about services, appointments, contact, or operating hours.</div>
+            </div>
+            <form className="lt-chatbot-form" id="ltChatForm">
+                <input className="lt-chatbot-input" id="ltChatInput" type="text" placeholder="Type your message..." autoComplete="off" />
+                <button className="lt-chatbot-send" type="submit">Send</button>
+            </form>
+        </div>
+        <button type="button" className="lt-chatbot-toggle" id="ltChatToggle"><i className="fas fa-comments"></i></button>
+    </div>
+    {/* Chat Popup */}
+    <div id="chat-popup" className="chat-popup">
+        <div className="popup-inner">
+            <div className="close-chat"><i className="fa fa-times"></i></div>
+            <div className="chat-form">
+                <p>Please fill out the form below and we will get back to you as soon as possible.</p>
+                <form action="https://scriptfusions.mnsithub.com/html/mediplace/main-html/assets/inc/sendemail.php"
+                    method="POST" className="contact-form-validated">
+                    <div className="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required />
+                    </div>
+                    <div className="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required />
+                    </div>
+                    <div className="form-group">
+                        <textarea name="message" placeholder="Your Text" required></textarea>
+                    </div>
+                    <div className="form-group message-btn">
+                        <button type="submit" className="thm-btn">
+                            <span className="fas fa-arrow-right"></span>
+                            Submit Now
+                        </button>
+                    </div>
+                    <div className="result"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    {/* Start sidebar widget content */}
+    <div className="xs-sidebar-group info-group info-sidebar">
+        <div className="xs-overlay xs-bg-black"></div>
+        <div className="xs-sidebar-widget">
+            <div className="sidebar-widget-container">
+                <div className="widget-heading">
+                    <a href="#" className="close-side-widget">X</a>
+                </div>
+                <div className="sidebar-textwidget">
+                    <div className="sidebar-info-contents">
+                        <div className="content-inner">
+                            <div className="logo">
+                                <a href="index.html"><img src="/assets/images/resources/ltwaytohealth.webp" alt="" /></a>
+                            </div>
+                            <div className="content-box">
+                                <h4>About Us</h4>
+                                <div className="inner-text">
+                                    <p>Receive Comprehensive Health Care at L.T Way to Healthcare, Bhubaneswar.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="form-inner">
+                                <h4>Get a free quote</h4>
+                                <form
+                                    action="https://scriptfusions.mnsithub.com/html/mediplace/main-html/assets/inc/sendemail.php"
+                                    method="POST" className="contact-form-validated">
+                                    <div className="form-group">
+                                        <input type="text" name="name" placeholder="Name" required="" />
+                                    </div>
+                                    <div className="form-group">
+                                        <input type="email" name="email" placeholder="Email" required="" />
+                                    </div>
+                                    <div className="form-group">
+                                        <textarea name="message" placeholder="Message..." required=""></textarea>
+                                    </div>
+                                    <div className="form-group message-btn">
+                                        <button className="thm-btn" data-text="Submit Now +" type="submit"
+                                            data-loading-text="Please wait...">
+                                            <span className="fas fa-arrow-right"></span>
+                                            Submit Now
+                                        </button>
+                                    </div>
+                                    <div className="result"></div>
+                                </form>
+                            </div>
+
+                            <div className="sidebar-contact-info">
+                                <h4>Contact Info</h4>
+                                <ul className="list-unstyled">
+                                    <li>
+                                        <span className="icon-pin"></span> Plot No 353/2324, Squre, Kolathia, Khandagiri,
+                                        Bhubaneswar, Odisha 751019, India
+                                    </li>
+                                    <li>
+                                        <span className="icon-phone-call"></span>
+                                        <a href="tel:+919090050151">+91 9090050151</a>
+                                    </li>
+                                    <li>
+                                        <span className="icon-email"></span>
+                                        <a href="mailto:Info@waytohealthcare.com">Info@waytohealthcare.com</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="thm-social-link1">
+                                <ul className="social-box list-unstyled">
+                                    <li>
+                                        <a href="#"><i className="icon-facebook-app-symbol" aria-hidden="true"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i className="icon-twitter" aria-hidden="true"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i className="icon-linkedin" aria-hidden="true"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i className="icon-instagram" aria-hidden="true"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {/* End sidebar widget content */}
+
+
+
+
+
+
+    <FloatingSupport />
+      <div className="page-wrapper">
+        <SiteHeader />
+
+        
+
+
+        <section className="section hero">
+            <div className="container hero-grid">
+                <div>
+                    <span className="eyebrow">Physiotherapy Services</span>
+                    <h1>Expert Physiotherapy, At Your Doorstep</h1>
+                    <p>
+                        Experience personalized, compassionate care from certified therapists in the comfort and convenience of your home.
+                    </p>
+                    <ul className="hero-list">
+                        <li >Certified professionals with in-home care expertise</li>
+                        <li>Personalized treatment plans based on your goals</li>
+                        <li>Flexible scheduling for Bhubaneswar and Cuttack</li>
+                    </ul>
+                    <p style={{marginTop: '18px'}}>
+                        <a className="btn btn-primary" href="#consultation">Request Your Free Consultation</a>
+                    </p>
+                </div>
+                <div className="hero-box">
+                    <h3>Your Path to Recovery Starts Here</h3>
+                    <p style={{marginTop: '8px'}}>
+                        We bring specialized physiotherapy care to your doorstep. Our mission is to create highly personalized treatment plans that address your specific needs, helping you regain strength and live pain-free.
+                    </p>
+                    <div className="grid-2" style={{marginTop: '16px'}}>
+                        <div className="card">
+                            <div className="lt-icon"><img src="/assets/images/icon/surgery.png" alt="Comprehensive Care" style={{height: '50px', width: '50px'}} /></div>
+                            <h3>Post-Surgery Care</h3>
+                            <p>Rebuilding strength and mobility after your operation.</p>
+                        </div>
+                        <div className="card">
+                            <div className="lt-icon"><img src="/assets/images/icon/pain.png" alt="Comprehensive Care" style={{height: '50px', width: '50px'}} /></div>
+                            <h3>Chronic Pain Relief</h3>
+                            <p>Managing back, neck, and joint pain for a better quality of life.</p>
+                        </div>
+                        <div className="card">
+                            <div className="lt-icon"><img src="/assets/images/icon/elderly.png" alt="Comprehensive Care" style={{height: '50px', width: '50px'}} /></div>
+                            <h3>Elderly Care</h3>
+                            <p>Enhancing mobility, balance, and independence to prevent falls.</p>
+                        </div>
+                        <div className="card">
+                            <div className="lt-icon"><img src="/assets/images/icon/neuron.png" alt="Comprehensive Care" style={{height: '50px', width: '50px'}} /></div>
+                            <h3>Neurological Support</h3>
+                            <p>Aiding recovery from strokes and other neurological conditions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section className="section">
+            <div className="container">
+                <span className="eyebrow">At-Home Advantage</span>
+                <h2>Skip the Clinic, Not the Care</h2>
+                <div className="grid-3" style={{marginTop: '16px'}}>
+                    <article className="card">
+                        <h3>Skip the Clinic, Not the Care</h3>
+                        <p>Receive top-tier physiotherapy without the stress and inconvenience of travel or waiting rooms.</p>
+                    </article>
+                    <article className="card">
+                        <h3>Truly Personalised Sessions</h3>
+                        <p>Your therapist focuses entirely on you, tailoring every exercise and technique to your condition and home environment.</p>
+                    </article>
+                    <article className="card">
+                        <h3>Comfort Breeds Confidence</h3>
+                        <p>Recovering in a familiar, stress-free space reduces anxiety and can improve mobility and confidence.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section className="section section-soft">
+            <div className="container">
+                <span className="eyebrow">How It Works</span>
+                <h2>Getting Started is Simple</h2>
+                <p>We have designed a straightforward and supportive process to begin your recovery journey.</p>
+                <div className="grid-4" style={{marginTop: '18px'}}>
+                    <article className="card step">
+                        <div className="step-number">1</div>
+                        <h3>Initial Call</h3>
+                        <p>A quick, friendly call to listen to your needs and answer your questions.</p>
+                    </article>
+                    <article className="card step">
+                        <div className="step-number">2</div>
+                        <h3>In-Home Assessment</h3>
+                        <p>A certified therapist visits for a comprehensive evaluation of your condition.</p>
+                    </article>
+                    <article className="card step">
+                        <div className="step-number">3</div>
+                        <h3>Customised Plan</h3>
+                        <p>We design a unique therapy plan with clear and achievable mobility goals.</p>
+                    </article>
+                    <article className="card step">
+                        <div className="step-number">4</div>
+                        <h3>Consistent Progress</h3>
+                        <p>Begin one-on-one sessions and track measurable improvements with expert support.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section className="section">
+            <div className="container">
+                <span className="eyebrow">Testimonials</span>
+                <h2>Stories From Our Community</h2>
+                <div className="grid-3" style={{marginTop: '18px'}}>
+                    <article className="card testimonial">
+                        <p>"The convenience of having a skilled physiotherapist come to our Cuttack home for my mother's post-stroke recovery was invaluable. The team's compassion and expertise made a world of difference."</p>
+                        <span className="name">D. Nayak</span>
+                        <span className="meta">Family Member, Cuttack</span>
+                    </article>
+                    <article className="card testimonial">
+                        <p>"As an athlete recovering from a sports injury, I needed focused care. The in-home sessions in Bhubaneswar allowed me to recover faster in a comfortable environment. Highly recommended!"</p>
+                        <span className="name">V. Kumar</span>
+                        <span className="meta">Sports Injury Patient, Bhubaneswar</span>
+                    </article>
+                    <article className="card testimonial">
+                        <p>"My husband's mobility was limited due to arthritis. The weekly physiotherapy sessions at our home have greatly improved his quality of life. The therapist is wonderful and very knowledgeable."</p>
+                        <span className="name">P. Das</span>
+                        <span className="meta">Family Member, Cuttack</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section className="section section-soft">
+            <div className="container">
+                <span className="eyebrow">FAQ</span>
+                <h2>Your Questions, Answered</h2>
+                <div style={{marginTop: '18px'}}>
+                    <details className="faq-item" open>
+                        <summary>Are your physiotherapists certified?</summary>
+                        <p className="faq-answer">Absolutely. All of our physiotherapists are fully certified, hold relevant degrees, and have extensive experience in providing in-home care.</p>
+                    </details>
+                    <details className="faq-item">
+                        <summary>What is the duration and cost of a session?</summary>
+                        <p className="faq-answer">A standard in-home session typically lasts between 45 to 60 minutes. For detailed pricing information, please contact us directly for a consultation.</p>
+                    </details>
+                    <details className="faq-item">
+                        <summary>What areas in BBSR and Cuttack do you serve?</summary>
+                        <p className="faq-answer">We proudly serve most areas across Bhubaneswar and Cuttack. Contact our support team to confirm your exact location coverage.</p>
+                    </details>
+                    <details className="faq-item">
+                        <summary>Do I need any special equipment?</summary>
+                        <p className="faq-answer">No. Our therapists bring all necessary portable equipment. If any specific aids or household items are needed, your therapist will guide you.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+      
+
+
+
+
+
+        {/* Newsletter One Start */}
+        <NewsletterSection
+            title="Ready to Begin Your Journey to Wellness?"
+            text="Whether you are a patient, partner, or future team member, we are here to support your next step."
+        />
+        {/* Newsletter One End */}
+
+        {/* Site Footer Three Start */}
+        <SiteFooter />
+        {/* Site Footer Three End */}
+
+
+
+
+    </div>{/* /.page-wrapper */}
+
+
+    <div className="mobile-nav__wrapper">
+        <div className="mobile-nav__overlay mobile-nav__toggler"></div>
+        {/* /.mobile-nav__overlay */}
+        <div className="mobile-nav__content">
+            <span className="mobile-nav__close mobile-nav__toggler"><i className="fa fa-times"></i></span>
+
+            <div className="logo-box">
+                <a href="index.html" aria-label="logo image"><img
+                        src="/assets/images/resources/ltwaytohealth.webp" width="150" alt="L.T Way to Healthcare" /></a>
+            </div>
+            {/* /.logo-box */}
+            <div className="mobile-nav__container"></div>
+            {/* /.mobile-nav__container */}
+
+            <ul className="mobile-nav__contact list-unstyled">
+                <li>
+                    <i className="fa fa-envelope"></i>
+                    <a href="mailto:Info@waytohealthcare.com">Info@waytohealthcare.com</a>
+                </li>
+                <li>
+                    <i className="fas fa-phone"></i>
+                    <a href="tel:(+91) 9090050151">(+91) 9090050151</a>
+                </li>
+            </ul>{/* /.mobile-nav__contact */}
+            <div className="mobile-nav__top">
+                <div className="mobile-nav__social">
+                    <a href="#" className="fab fa-twitter"></a>
+                    <a href="#" className="fab fa-facebook-square"></a>
+                    <a href="#" className="fab fa-pinterest-p"></a>
+                    <a href="#" className="fab fa-instagram"></a>
+                </div>{/* /.mobile-nav__social */}
+            </div>{/* /.mobile-nav__top */}
+
+
+
+        </div>
+        {/* /.mobile-nav__content */}
+    </div>
+    {/* /.mobile-nav__wrapper */}
+
+    {/* Search Popup */}
+    <div className="search-popup">
+        <div className="color-layer"></div>
+        <button className="close-search"><span className="far fa-times fa-fw"></span></button>
+        <form method="post" action="https://scriptfusions.mnsithub.com/html/mediplace/main-html/blog.html">
+            <div className="form-group">
+                <input type="search" name="search-field" value="" placeholder="Search Here" required="" />
+                <button type="submit"><i className="fas fa-search"></i></button>
+            </div>
+        </form>
+    </div>
+    {/* End Search Popup */}
+
+    <a href="#" data-target="html" className="scroll-to-target scroll-to-top">
+        <span className="scroll-to-top__wrapper"><span className="scroll-to-top__inner"></span></span>
+        <span className="scroll-to-top__text"> Go Back Top</span>
+    </a>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+    </>
+  );
+};

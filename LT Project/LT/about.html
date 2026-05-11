@@ -1,0 +1,2063 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <!-- favicons Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
+    <meta name="description" content="Mediplace HTML 5 Template " />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/animate.min.css" />
+    <link rel="stylesheet" href="assets/css/custom-animate.css" />
+    <link rel="stylesheet" href="assets/css/swiper.min.css" />
+    <link rel="stylesheet" href="assets/css/font-awesome-all.css" />
+    <link rel="stylesheet" href="assets/css/jarallax.css" />
+    <link rel="stylesheet" href="assets/css/jquery.magnific-popup.css" />
+    <link rel="stylesheet" href="assets/css/odometer.min.css" />
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="assets/css/nice-select.css" />
+    <link rel="stylesheet" href="assets/css/jquery-ui.css" />
+    <link rel="stylesheet" href="assets/css/twentytwenty.css" />
+    <link rel="stylesheet" href="assets/css/aos.css" />
+    <link rel="stylesheet" href="assets/css/timePicker.css" />
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <style>
+        :root {
+            --mediplace-base: #05bdec;
+            --mediplace-base-rgb: 5, 189, 236;
+            --mediplace-black: #16a392;
+            --mediplace-black-rgb: 103, 148, 53;
+        }
+
+        .thm-btn {
+            background: linear-gradient(135deg, #05bdec 0%, #16a392 100%);
+            border: 0;
+            border-radius: 10px;
+            box-shadow: 0 10px 24px rgba(5, 189, 236, 0.25);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+        }
+
+        .thm-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 26px rgba(103, 148, 53, 0.28);
+            filter: saturate(1.05);
+        }
+
+        .main-menu .main-menu__list>li>a,
+        .stricky-header .main-menu__list>li>a,
+        .main-menu .main-menu__list>li:hover>a,
+        .main-menu .main-menu__list>li.current>a,
+        .stricky-header .main-menu__list>li:hover>a,
+        .stricky-header .main-menu__list>li.current>a {
+            color: #000000 !important;
+        }
+
+        .main-menu .main-menu__list>li.services-dropdown>a {
+            font-weight: 700;
+            color: var(--mediplace-black);
+        }
+
+        .main-menu .main-menu__list>li.services-dropdown>ul {
+            width: 560px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            padding: 14px;
+            border-radius: 14px;
+            border: 1px solid rgba(5, 189, 236, 0.22);
+            box-shadow: 0 16px 36px rgba(5, 189, 236, 0.15);
+        }
+
+        .main-menu .main-menu__list>li.services-dropdown>ul>li {
+            margin: 0;
+        }
+
+        .main-menu .main-menu__list>li.services-dropdown>ul>li>a {
+            border-radius: 10px;
+            min-height: 42px;
+            display: flex;
+            align-items: center;
+            padding: 10px 12px;
+            font-weight: 600;
+            line-height: 1.35;
+            color: #1f2b36;
+            transition: all 0.25s ease;
+        }
+
+        .main-menu .main-menu__list>li.services-dropdown>ul>li>a:hover {
+            background: linear-gradient(135deg, rgba(5, 189, 236, 0.14), rgba(103, 148, 53, 0.14));
+            color: var(--mediplace-black);
+            transform: translateX(2px);
+        }
+
+        .about-three {
+            background: linear-gradient(135deg, rgba(5, 189, 236, 0.1) 0%, rgba(103, 148, 53, 0.12) 100%);
+            border-top: 1px solid rgba(5, 189, 236, 0.2);
+            border-bottom: 1px solid rgba(103, 148, 53, 0.2);
+        }
+
+        .about-three .section-title__tagline,
+        .about-three__content h4,
+        .about-three__points li {
+            color: #1a2b36;
+        }
+
+        .about-three__experience-box {
+            background: linear-gradient(135deg, #05bdec 0%, #679435 100%);
+            box-shadow: 0 12px 28px rgba(5, 189, 236, 0.25);
+        }
+
+        .services-three {
+            background: linear-gradient(180deg, rgba(5, 189, 236, 0.08) 0%, rgba(255, 255, 255, 1) 100%);
+        }
+
+        .services-three__single-inner,
+        .process-two__single,
+        .benefits-one__tab-buttons-single,
+        .blog-three__single {
+            border-radius: 14px;
+            border: 1px solid rgba(5, 189, 236, 0.2);
+            box-shadow: 0 10px 24px rgba(5, 189, 236, 0.09);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .services-three__single-inner:hover,
+        .process-two__single:hover,
+        .benefits-one__tab-buttons-single:hover,
+        .blog-three__single:hover {
+            transform: translateY(-5px);
+            border-color: rgba(103, 148, 53, 0.45);
+            box-shadow: 0 16px 34px rgba(103, 148, 53, 0.16);
+        }
+
+        .services-three__icon span,
+        .process-two__count,
+        .benefits-one .tab-buttons .tab-btn.active-btn .benefits-one__tab-buttons-single,
+        .blog-three__date {
+            background: linear-gradient(135deg, #05bdec 0%, #679435 100%);
+            color: #ffffff;
+        }
+
+        .section-title__title span,
+        .services-three__title a:hover,
+        .benefits-one__content-right-title,
+        .blog-three__title a:hover {
+            color: #679435 !important;
+        }
+
+        .discount-one {
+            background: linear-gradient(130deg, rgba(5, 189, 236, 0.85) 0%, rgba(103, 148, 53, 0.9) 100%);
+        }
+
+        .site-footer-three {
+            background: linear-gradient(180deg, #0f1e2c 0%, #162d3d 55%, #1f3f2f 100%);
+        }
+
+        .site-footer-three a:hover,
+        .site-footer-three__newsletter-btn {
+            color: #05bdec !important;
+        }
+
+        @media (max-width: 1199px) {
+            .main-menu .main-menu__list>li.services-dropdown>ul {
+                width: 100%;
+                display: block;
+                padding: 0;
+                border: 0;
+                box-shadow: none;
+            }
+        }
+
+        .lt-section {
+            padding: 110px 0;
+            background: #f8fafb;
+        }
+
+        .lt-section.alt {
+    background: #e5ece6;
+}
+
+        .lt-section.lt-why-section {
+            background: #fff3d9;
+        }
+
+        .lt-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: #eaf8f6;
+            color: #149a8a;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .lt-title {
+            font-size: 54px;
+            line-height: 1.08;
+            color: #0f2f4f;
+            margin: 0 0 14px;
+            font-weight: 700;
+        }
+
+        .lt-subtext {
+            color: #6d7e8e;
+            font-size: 17px;
+            line-height: 1.8;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .lt-card {
+            background: #fff;
+            border: 1px solid #edf2f6;
+            border-radius: 20px;
+            box-shadow: 0 8px 28px rgba(10, 39, 71, 0.06);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .lt-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 34px rgba(10, 39, 71, 0.1);
+        }
+
+        .lt-why-grid .lt-card {
+            text-align: center;
+            padding: 34px 24px 30px;
+            height: 100%;
+        }
+
+        .lt-icon {
+            width: 58px;
+            height: 58px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: #17b09b;
+            background: #eaf8f6;
+            font-size: 20px;
+        }
+
+        .lt-why-grid h4 {
+            font-size: 28px;
+            color: #123555;
+            margin: 0 0 12px;
+        }
+
+        .lt-why-grid p {
+            margin: 0;
+            color: #6d7e8e;
+            font-size: 16px;
+            line-height: 1.75;
+        }
+
+        .lt-services-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 20px;
+            margin-bottom: 36px;
+        }
+
+        .lt-nav {
+            display: flex;
+            gap: 12px;
+        }
+
+        .lt-nav .nav-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid #d8e3ec;
+            background: #fff;
+            color: #2f4c67;
+            display: grid;
+            place-items: center;
+        }
+
+        .lt-nav .nav-btn.active {
+            color: #fff;
+            border-color: #16a392;
+            background: #16a392;
+        }
+
+        .lt-service-card {
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .lt-services-slider {
+            padding: 8px 4px 18px;
+        }
+
+        .lt-services-slider .swiper-slide {
+            height: auto;
+        }
+
+        .lt-services-slider .lt-card {
+            height: 100%;
+        }
+
+        .lt-thumb {
+            height: 230px;
+            background: linear-gradient(145deg, #d8eff3 0%, #c8e4e9 100%);
+            border-bottom: 1px solid #ebf1f5;
+        }
+
+        .lt-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            display: block;
+        }
+
+        .lt-service-content,
+        .lt-blog-content {
+            padding: 26px 24px 24px;
+        }
+
+        .lt-eyebrow {
+            margin: 0 0 10px;
+            color: #16a392;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+        }
+
+        .lt-service-card h4,
+        .lt-blog-card h4 {
+            margin: 0 0 10px;
+            font-size: 34px;
+            line-height: 1.2;
+            color: #123555;
+        }
+
+        .lt-service-card p,
+        .lt-blog-card p,
+        .lt-who-content p {
+            margin: 0;
+            color: #6d7e8e;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .lt-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 14px;
+            color: #16a392;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .lt-benefits-slider {
+            padding: 8px 4px 18px;
+        }
+
+        .lt-benefits-slider .swiper-slide {
+            height: auto;
+        }
+
+        .lt-benefits-slider .lt-card {
+            height: 100%;
+        }
+
+        .lt-benefits-points {
+            list-style: none;
+            padding: 0;
+            margin: 14px 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .lt-benefits-points li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #6d7e8e;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .lt-benefits-points li i {
+            color: #16a392;
+            margin-top: 4px;
+            flex: 0 0 auto;
+        }
+
+        /* Benefits redesign: restore original layout, hide temporary slider */
+        section.benefits-one .section-title,
+        section.benefits-one .benefits-one__inner {
+            display: block;
+        }
+
+        section.benefits-one .lt-benefits-replacement {
+            display: none;
+        }
+
+        section.benefits-one {
+            background: #ffffff;
+        }
+
+        section.benefits-one .section-title__tagline {
+            color: #16a392;
+            font-weight: 700;
+            letter-spacing: .04em;
+        }
+
+        section.benefits-one .section-title__title,
+        section.benefits-one .benefits-one__content-right-title {
+            color: #123555;
+        }
+
+        section.benefits-one .benefits-one__tab-buttons-single {
+            border-radius: 18px;
+            border: 1px solid #edf2f6;
+            box-shadow: 0 8px 28px rgba(10, 39, 71, 0.06);
+            color: #123555;
+        }
+
+        section.benefits-one .tab-buttons .tab-btn.active-btn .benefits-one__tab-buttons-single {
+            background: #fff7ea;
+            border-color: rgba(22, 163, 146, 0.25);
+            box-shadow: 0 14px 32px rgba(22, 163, 146, 0.12);
+        }
+
+        .lt-benefit-tab-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: inline-grid;
+            place-items: center;
+            background: #eaf8f6;
+            color: #16a392;
+            font-size: 20px;
+        }
+
+        section.benefits-one .tab-buttons .tab-btn.active-btn .lt-benefit-tab-icon {
+            background: #16a392;
+            color: #ffffff;
+        }
+
+        section.benefits-one .benefits-one__tab-buttons-single span {
+            font-size: 16px;
+            font-weight: 700;
+            color: #123555;
+        }
+
+        section.benefits-one .benefits-one__content-right-text,
+        section.benefits-one .benefits-one__points li .text p {
+            color: #6d7e8e;
+        }
+
+        section.benefits-one .benefits-one__points li .icon span {
+            color: #16a392;
+        }
+
+        section.benefits-one .benefits-one__content-img img,
+        section.benefits-one .benefits-one__content-small-img img {
+            object-fit: cover;
+        }
+
+        .lt-gap-section {
+            background: linear-gradient(180deg, #f7fbfc 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lt-gap-section::before {
+            content: "";
+            position: absolute;
+            top: -120px;
+            right: -120px;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(22, 163, 146, 0.14) 0%, rgba(22, 163, 146, 0) 70%);
+            pointer-events: none;
+        }
+
+        .lt-gap-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+            gap: 28px;
+            align-items: start;
+            position: relative;
+            z-index: 1;
+        }
+
+        .lt-gap-cards {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .lt-gap-card {
+            overflow: hidden;
+            cursor: pointer;
+            border-radius: 22px;
+            border: 1px solid #e8eef3;
+            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+        }
+
+        .lt-gap-card.is-active {
+            border-color: rgba(22, 163, 146, 0.3);
+            box-shadow: 0 16px 34px rgba(22, 163, 146, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .lt-gap-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .lt-gap-card .lt-thumb {
+            height: 240px;
+            border-bottom: 0;
+        }
+
+        .lt-gap-card .lt-service-content {
+            padding: 20px 20px 22px;
+        }
+
+        .lt-gap-card h4 {
+            font-size: 22px;
+            margin: 0 0 8px;
+            color: #123555;
+        }
+
+        .lt-gap-card p {
+            color: #6d7e8e;
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .lt-gap-detail {
+            padding: 28px;
+            border-radius: 28px;
+            border: 1px solid #e8eef3;
+            box-shadow: 0 18px 40px rgba(10, 39, 71, 0.08);
+            background: #ffffff;
+            position: sticky;
+            top: 24px;
+        }
+
+        .lt-gap-detail-media {
+            border-radius: 22px;
+            overflow: hidden;
+            background: #eef5f7;
+            margin-bottom: 24px;
+        }
+
+        .lt-gap-detail-media img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .lt-gap-detail h3 {
+            color: #123555;
+            font-size: 40px;
+            line-height: 1.15;
+            margin: 0 0 14px;
+        }
+
+        .lt-gap-detail p {
+            color: #6d7e8e;
+            font-size: 16px;
+            line-height: 1.85;
+            margin: 0;
+        }
+
+        .lt-gap-points {
+            list-style: none;
+            padding: 0;
+            margin: 18px 0 0;
+            display: grid;
+            gap: 10px;
+        }
+
+        .lt-gap-points li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            color: #6d7e8e;
+            font-size: 15px;
+            line-height: 1.65;
+        }
+
+        .lt-gap-points i {
+            color: #16a392;
+            margin-top: 4px;
+        }
+
+        .lt-about-values {
+            margin-top: 28px;
+        }
+
+        .lt-about-values .lt-card {
+            padding: 22px 20px;
+            height: 100%;
+        }
+
+        .lt-about-values h4 {
+            font-size: 20px;
+            color: #123555;
+            margin: 0 0 10px;
+        }
+
+        .lt-about-values p {
+            margin: 0;
+            color: #6d7e8e;
+            line-height: 1.7;
+        }
+
+        .lt-gap-topline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 16px;
+        }
+
+        .lt-gap-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            background: #f2fbf8;
+            border: 1px solid rgba(22, 163, 146, 0.16);
+            border-radius: 999px;
+            color: #16a392;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .04em;
+        }
+
+        .lt-gap-badge i {
+            font-size: 14px;
+        }
+
+        .lt-gap-stat {
+            min-width: 110px;
+            text-align: right;
+        }
+
+        .lt-gap-stat strong {
+            display: block;
+            color: #123555;
+            font-size: 32px;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .lt-gap-stat span {
+            color: #7f91a0;
+            font-size: 13px;
+            letter-spacing: .04em;
+        }
+
+        .lt-gap-detail.is-switching {
+            opacity: .82;
+            transform: translateY(2px);
+        }
+
+        .lt-blog-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            align-items: center;
+            margin-bottom: 34px;
+        }
+
+        .lt-ghost-btn {
+            border: 1px solid #87c5ba;
+            color: #16a392;
+            background: #fff;
+            border-radius: 999px;
+            padding: 10px 20px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .lt-blog-meta {
+            margin: 0 0 12px;
+            color: #8da0b0;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .lt-who-wrap {
+            display: grid;
+            gap: 36px;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+        }
+
+        .lt-who-media {
+            background: linear-gradient(145deg, #d8eff3 0%, #c4dfe8 100%);
+            border-radius: 24px;
+            min-height: 390px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #e8f0f3;
+        }
+
+        .lt-who-media img {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 240px;
+            width: 48%;
+            opacity: .95;
+            filter: drop-shadow(0 18px 24px rgba(8, 36, 62, .18));
+        }
+
+        .lt-who-content .lt-subtext {
+            margin: 0;
+            max-width: 100%;
+        }
+
+        .lt-testimonial-card {
+            padding: 32px 28px;
+            height: 100%;
+        }
+
+        .lt-quote {
+            color: #4f6578;
+            font-size: 18px;
+            line-height: 1.8;
+            margin: 0 0 22px;
+        }
+
+        .lt-author {
+            margin: 0;
+            color: #123555;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .lt-role {
+            margin: 4px 0 0;
+            color: #16a392;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .lt-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+        }
+
+        .lt-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #d5e0ea;
+        }
+
+        .lt-dots span.active {
+            background: #2b90ff;
+        }
+
+        @media (max-width: 991px) {
+            .lt-title {
+                font-size: 40px;
+            }
+
+            .lt-services-header,
+            .lt-blog-head {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .lt-who-wrap {
+                grid-template-columns: 1fr;
+            }
+
+            .lt-gap-layout,
+            .lt-gap-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .lt-gap-card .lt-thumb {
+                height: 240px;
+            }
+
+            .lt-gap-detail {
+                position: static;
+            }
+
+            .lt-gap-topline {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .lt-gap-stat {
+                text-align: left;
+            }
+        }
+
+        .chat-icon {
+            position: fixed;
+            right: 31px;
+            bottom: 3%;
+            z-index: 99999999;
+        }
+
+        .chat-icon .chat-toggler {
+            cursor: pointer;
+            width: 55px;
+            height: 55px;
+            border: 0;
+            border-radius: 50%;
+            background: #05bdec;
+            color: #ffffff;
+            font-size: 24px;
+            box-shadow: 0 6px 9px rgb(0 0 0 / 5%), 0 4px 5px rgb(0 0 0 / 5%);
+        }
+
+        #whatsappbtn {
+            cursor: pointer;
+            position: fixed;
+            bottom: 3%;
+            left: 31px;
+            z-index: 99999999;
+            padding-top: 8px;
+            background: #4fcc5d;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            text-align: center;
+            box-shadow: 0 6px 9px rgb(0 0 0 / 5%), 0 4px 5px rgb(0 0 0 / 5%);
+        }
+
+        #whatsappbtn img {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+        }
+
+        #lt-chatbot {
+            position: fixed;
+            left: 31px;
+            bottom: 95px;
+            z-index: 99999998;
+            font-family: "Manrope", sans-serif;
+        }
+
+        .lt-chatbot-toggle {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: 0;
+            background: #ff6b35;
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer;
+            box-shadow: 0 6px 9px rgb(0 0 0 / 8%), 0 4px 5px rgb(0 0 0 / 6%);
+        }
+
+        .lt-chatbot-panel {
+            width: 320px;
+            height: 430px;
+            margin-bottom: 12px;
+            background: #fff;
+            border: 1px solid #dce8ef;
+            border-radius: 16px;
+            box-shadow: 0 18px 40px rgba(10, 39, 71, 0.18);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .lt-chatbot-panel.is-open {
+            display: flex;
+        }
+
+        .lt-chatbot-header {
+            background: linear-gradient(135deg, #ff7f50 0%, #ff6b35 100%);
+            color: #fff;
+            padding: 12px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .lt-chatbot-header h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .lt-chatbot-close {
+            border: 0;
+            background: transparent;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .lt-chatbot-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 12px;
+            background: #f5f8fb;
+        }
+
+        .lt-chatbot-msg {
+            max-width: 84%;
+            padding: 10px 12px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .lt-chatbot-msg.bot {
+            background: #fff;
+            border: 1px solid #dce8ef;
+            color: #1f2b36;
+        }
+
+        .lt-chatbot-msg.user {
+            margin-left: auto;
+            background: #ff6b35;
+            color: #fff;
+        }
+
+        .lt-chatbot-form {
+            display: flex;
+            gap: 8px;
+            padding: 10px;
+            border-top: 1px solid #e4edf3;
+            background: #fff;
+        }
+
+        .lt-chatbot-input {
+            flex: 1;
+            border: 1px solid #d6e3ec;
+            border-radius: 10px;
+            padding: 9px 10px;
+            font-size: 14px;
+        }
+
+        .lt-chatbot-send {
+            border: 0;
+            border-radius: 10px;
+            background: #ff6b35;
+            color: #fff;
+            padding: 0 14px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="custom-cursor">
+
+    <div class="custom-cursor__cursor"></div>
+    <div class="custom-cursor__cursor-two"></div>
+
+
+
+
+    <div class="chat-icon"><button type="button" class="chat-toggler"><i class="fa fa-comment"></i></button></div>
+    <a id="whatsappbtn" href="https://api.whatsapp.com/send?phone=919090050151" target="_blank">
+        <img src="assets/images/icon/whatsapp.png" alt="WhatsApp">
+    </a>
+    <div id="lt-chatbot">
+        <div class="lt-chatbot-panel" id="ltChatPanel">
+            <div class="lt-chatbot-header">
+                <h4>L.T Care Assistant</h4>
+                <button type="button" class="lt-chatbot-close" id="ltChatClose"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="lt-chatbot-messages" id="ltChatMessages">
+                <div class="lt-chatbot-msg bot">Hi! Welcome to L.T Way to Healthcare. Ask me about services,
+                    appointments, contact, or operating hours.</div>
+            </div>
+            <form class="lt-chatbot-form" id="ltChatForm">
+                <input class="lt-chatbot-input" id="ltChatInput" type="text" placeholder="Type your message..."
+                    autocomplete="off">
+                <button class="lt-chatbot-send" type="submit">Send</button>
+            </form>
+        </div>
+        <button type="button" class="lt-chatbot-toggle" id="ltChatToggle"><i class="fas fa-comments"></i></button>
+    </div>
+    <!--Chat Popup-->
+    <div id="chat-popup" class="chat-popup">
+        <div class="popup-inner">
+            <div class="close-chat"><i class="fa fa-times"></i></div>
+            <div class="chat-form">
+                <p>Please fill out the form below and we will get back to you as soon as possible.</p>
+                <form action="https://scriptfusions.mnsithub.com/html/mediplace/main-html/assets/inc/sendemail.php"
+                    method="POST" class="contact-form-validated">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Text" required></textarea>
+                    </div>
+                    <div class="form-group message-btn">
+                        <button type="submit" class="thm-btn">
+                            <span class="fas fa-arrow-right"></span>
+                            Submit Now
+                        </button>
+                    </div>
+                    <div class="result"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Start sidebar widget content -->
+    <div class="xs-sidebar-group info-group info-sidebar">
+        <div class="xs-overlay xs-bg-black"></div>
+        <div class="xs-sidebar-widget">
+            <div class="sidebar-widget-container">
+                <div class="widget-heading">
+                    <a href="#" class="close-side-widget">X</a>
+                </div>
+                <div class="sidebar-textwidget">
+                    <div class="sidebar-info-contents">
+                        <div class="content-inner">
+                            <div class="logo">
+                                <a href="index.html"><img src="assets/images/resources/ltwaytohealth.webp" alt="" /></a>
+                            </div>
+                            <div class="content-box">
+                                <h4>About Us</h4>
+                                <div class="inner-text">
+                                    <p>Receive Comprehensive Health Care at L.T Way to Healthcare, Bhubaneswar.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="form-inner">
+                                <h4>Get a free quote</h4>
+                                <form
+                                    action="https://scriptfusions.mnsithub.com/html/mediplace/main-html/assets/inc/sendemail.php"
+                                    method="POST" class="contact-form-validated">
+                                    <div class="form-group">
+                                        <input type="text" name="name" placeholder="Name" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="email" placeholder="Email" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="message" placeholder="Message..." required=""></textarea>
+                                    </div>
+                                    <div class="form-group message-btn">
+                                        <button class="thm-btn" data-text="Submit Now +" type="submit"
+                                            data-loading-text="Please wait...">
+                                            <span class="fas fa-arrow-right"></span>
+                                            Submit Now
+                                        </button>
+                                    </div>
+                                    <div class="result"></div>
+                                </form>
+                            </div>
+
+                            <div class="sidebar-contact-info">
+                                <h4>Contact Info</h4>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <span class="icon-pin"></span> Plot No 353/2324, Squre, Kolathia, Khandagiri,
+                                        Bhubaneswar, Odisha 751019, India
+                                    </li>
+                                    <li>
+                                        <span class="icon-phone-call"></span>
+                                        <a href="tel:+919090050151">+91 9090050151</a>
+                                    </li>
+                                    <li>
+                                        <span class="icon-email"></span>
+                                        <a href="mailto:Info@waytohealthcare.com">Info@waytohealthcare.com</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="thm-social-link1">
+                                <ul class="social-box list-unstyled">
+                                    <li>
+                                        <a href="#"><i class="icon-facebook-app-symbol" aria-hidden="true"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="icon-twitter" aria-hidden="true"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="icon-linkedin" aria-hidden="true"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="icon-instagram" aria-hidden="true"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End sidebar widget content -->
+
+
+
+
+
+
+    <div class="page-wrapper">
+        <header class="main-header-three">
+            <nav class="main-menu main-menu-three">
+                <div class="main-menu-three__wrapper">
+                    <div class="main-menu-three__wrapper-inner">
+                        <div class="main-menu-three__logo">
+                            <a href="index.html"><img src="assets/images/resources/ltwaytohealth.webp" alt=""></a>
+                        </div>
+                        <div class="main-menu-three__main-menu-box-outer">
+                            <div class="main-menu-three__main-menu-box-outer-top">
+                                <ul class="list-unstyled main-menu-three__contact-list">
+
+                                    <li>
+                                        <div class="icon">
+                                            <i class="icon-phone-call"></i>
+                                        </div>
+                                        <div class="text">
+                                            <p><a href="tel:+919090050151">(+91) 9090050151</a></p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon">
+                                            <i class="icon-email"></i>
+                                        </div>
+                                        <div class="text">
+                                            <p><a href="mailto:Info@waytohealthcare.com">Info@waytohealthcare.com</a>
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="main-menu-three__social">
+                                    <a href=""><i class="icon-facebook-app-symbol"></i></a>
+                                    <a href=""><i class="icon-twitter"></i></a>
+                                    <a href=""><i class="icon-instagram"></i></a>
+                                    <a href=""><i class="icon-linkedin"></i></a>
+                                </div>
+                            </div>
+                            <div class="main-menu-three__main-menu-box-content">
+                                <div class="main-menu-three__main-menu-box">
+                                    <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+                                    <ul class="main-menu__list">
+                                        <li><a href="index.html">Home </a></li>
+                                        <li><a href="doctors.html">Doctors </a></li>
+                                        <li><a href="about.html">About </a></li>
+
+
+                                        <li class="dropdown services-dropdown">
+                                            <a href="#">Services</a>
+                                            <ul>
+                                                <li><a href="physiotherapy.html">Physiotherapy</a></li>
+                                                <li><a href="home-nursing.html">Home Nursing</a></li>
+                                                <li><a href="old-age-care.html">Old-age Care</a></li>
+                                                <li><a href="baby-care-attendant.html">Baby Care Attendant</a></li>
+                                                <li><a href="home-icu-setup.html">Home ICU Setup</a></li>
+                                                <li><a href="home-patient-care-attendant.html">Home Patient Care Attendant</a></li>
+                                                <li><a href="home-technician-support.html">Home Technician Support</a></li>
+                                                <li><a href="home-doctor-visit.html">Home Doctor Visit</a></li>
+                                                <li><a href="home-medicine-deliveries.html">Home Medicine Deliveries</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="dropdown">
+                                            <a href="#">Join Us</a>
+                                            <ul>
+                                                <li><a href="">Hospital</a></li>
+                                                <li><a href="">Doctor</a></li>
+                                                <li><a href="">Franchise</a></li>
+                                                <li><a href="">Career</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li><a href="#">Blog</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                                <div class="main-menu-three__cart-search-call-and-nav-sidebar-icon">
+
+                                    <div class="main-menu-three__call-and-nav-sidebar-icon">
+                                        <div class="main-menu-three__call">
+                                            <div class="main-menu-three__call-icon">
+                                                <i class="icon-phone"></i>
+                                            </div>
+                                            <div class="main-menu-three__call-content">
+                                                <p class="main-menu-three__call-sub-title">Need Help!</p>
+                                                <!-- <h5 class="main-menu-three__call-number"><a href="tel:+919090050151">(+91) 9090050151</a></h5> -->
+                                            </div>
+                                        </div>
+                                        <div class="main-menu-three__nav-sidebar-icon">
+                                            <a class="navSidebar-button" href="#">
+                                                <span class="main-menu-three__icon-dots-menu-one"></span>
+                                                <span class="main-menu-three__icon-dots-menu-two"></span>
+                                                <span class="main-menu-three__icon-dots-menu-three"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="stricky-header stricked-menu main-menu main-menu-three">
+            <div class="sticky-header__content"></div>
+        </div>
+
+        <!--Page Header Start-->
+        <section class="page-header">
+            <div class="page-header__bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg);">
+            </div>
+            <div class="container">
+                <div class="page-header__inner">
+                    <h3>About L.T Way to Healthcare</h3>
+                    <div class="thm-breadcrumb__inner">
+                        <ul class="thm-breadcrumb list-unstyled">
+                            <li><a href="index.html">Home</a></li>
+                            <li><span class="fas fa-angle-right"></span></li>
+                            <li>About Us</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Page Header End-->
+
+        <!--About One Start -->
+        <section class="about-one">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5">
+                        <div class="about-one__left wow slideInLeft" data-wow-delay="100ms" data-wow-duration="2500ms">
+                            <div class="about-one__img-box">
+                                <div class="about-one__img-one">
+                                    <img src="assets/images/resources/about-one-img-1.jpg" alt="">
+                                </div>
+                                <div class="about-one__img-two">
+                                    <img src="assets/images/resources/about-one-img-2.jpg" alt="">
+                                </div>
+                                <div class="about-one__circle-text">
+                                    <div class="about-one__round-text-box">
+                                        <div class="inner">
+                                            <div class="about-one__curved-circle">
+                                                Trusted Rehabilitation & Multispecialty Care in Bhubaneswar.
+                                            </div>
+                                        </div>
+                                        <div class="overlay-icon-box">
+                                            <a href="https://www.youtube.com/watch?v=Get7rqXYrbQ" class="video-popup"><i
+                                                    class="fas fa-play"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-7">
+                        <div class="about-one__right">
+                            <div class="section-title text-left sec-title-animation animation-style1">
+                                <div class="section-title__tagline-box">
+                                    <span class="icon-healthcare"></span>
+                                    <p class="section-title__tagline">Our Mission</p>
+                                </div>
+                                <h2 class="section-title__title title-animation">
+                                    Healing with <span>Compassion</span><br> & Excellence
+                                </h2>
+                            </div>
+                            <p class="about-one__text">
+                                L.T Way to Healthcare is a trusted Rehabilitation and Multispecialty Healthcare Center
+                                dedicated to restoring health, mobility, and quality of life. We combine medical
+                                expertise, modern facilities, and personalized rehabilitation programs to provide the
+                                best possible care.
+                            </p>
+                            <div class="about-one__points-and-experience-box">
+                                <ul class="about-one__points-box">
+                                    <li>
+                                        <div class="icon">
+                                            <span class="fas fa-check"></span>
+                                        </div>
+                                        <div class="text">
+                                            <p>Compassion in every step of care</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon">
+                                            <span class="fas fa-check"></span>
+                                        </div>
+                                        <div class="text">
+                                            <p>Excellence in treatment and rehabilitation</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon">
+                                            <span class="fas fa-check"></span>
+                                        </div>
+                                        <div class="text">
+                                            <p>Affordable and accessible healthcare for all</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="about-one__experience-box">
+                                    <div class="about-one__experience-box-inner">
+                                        <div class="about-one__experience-count">
+                                            <h3 class="odometer" data-count="12">00</h3>
+                                            <span>+</span>
+                                            <p>Core</p>
+                                        </div>
+                                        <p class="about-one__experience-count-text">Specialized Care Services</p>
+                                    </div>
+                                    <div class="about-one__experience-icon-box">
+                                        <span class="icon-award-symbol"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="about-one__points-points-two-box">
+                                <ul class="about-one__points-two-box">
+                                    <li>
+                                        <div class="icon">
+                                            <span class="icon-hydrotherapy"></span>
+                                        </div>
+                                        <div class="text">
+                                            <h4>Patient-first Approach</h4>
+                                        </div>
+                                    </li>
+                                  
+                                </ul>
+                            </div>
+                 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--About One End -->
+
+
+        <section class="lt-section alt">
+            <div class="container">
+                <div class="section-title text-center sec-title-animation animation-style1">
+                    <div class="section-title__tagline-box">
+                        <span class="icon-pharmacy"></span>
+                        <p class="section-title__tagline">Our Unified Purpose</p>
+                    </div>
+                    <h2 class="section-title__title title-animation">Values, Mission & Vision that <span>guide every
+                            service</span></h2>
+                </div>
+                <div class="row lt-about-values">
+                    <div class="col-xl-4 col-md-6 mb-4">
+                        <div class="lt-card">
+                            <div class="lt-icon"><img src="assets/images/icon/core-values.png" alt="Comprehensive Care"
+                                style="height:50px;width:50px;"></div>
+                            <h4>L.T Way Core Values</h4>
+                            <p>Compassion in care, excellence in treatment, integrity and trust, innovation for
+                                recovery, patient-first service, and affordable healthcare access.</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6 mb-4">
+                        <div class="lt-card">
+                            <div class="lt-icon"><img src="assets/images/icon/target.png" alt="Comprehensive Care"
+                                style="height:50px;width:50px;"></div>
+                            <h4>Mission & Vision</h4>
+                            <p>Our mission is affordable, holistic, patient-centered healthcare and rehabilitation. Our
+                                vision is to be Odisha's trusted destination for recovery, healing, and wellness.</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6 mb-4">
+                        <div class="lt-card">
+                            <div class="lt-icon"><img src="assets/images/icon/moral.png" alt="Comprehensive Care"
+                                style="height:50px;width:50px;"></div>
+                            <h4>OSKY Values</h4>
+                            <p>Integrity, empathy, accessibility, innovation, and community focus to ensure healthcare
+                                reaches every citizen as a right, not a privilege.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Start Slogan One -->
+        <section class="slogan-one">
+            <div class="slogan-one__bg" style="background-image: url(assets/images/backgrounds/teeth-cleaning-bg.jpg);">
+            </div>
+            <div class="slogan-one__shape1">
+                <img src="assets/images/shapes/services-three-shape-5.png" alt="Shape">
+            </div>
+            <div class="container">
+                <div class="slogan-one__content">
+                    <div class="slogan-one__content-title">
+                        <h2>The OSKY Project: Making <br> Healthcare a Right</h2>
+                        <p>OSKY is a pioneering initiative designed to provide accessible, affordable, and
+                            comprehensive health coverage across Odisha through preventive, curative, and wellness
+                            services.</p>
+                    </div>
+                    <div class="slogan-one__content-bottom">
+                        <div class="slogan-one__content-btn">
+                            <a href="contact.html" class="thm-btn">
+                                <span class="fas fa-arrow-right"></span>
+                                Join OSKY Initiative
+                            </a>
+                        </div>
+                        <div class="slogan-one__content-video">
+                            <a class="video-popup" title="Video Gallery"
+                                href="https://www.youtube.com/watch?v=Get7rqXYrbQ">
+                                <i class="fa fa-solid fa-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Slogan One -->
+
+<br>
+<br>
+
+        <!--Eye Care Center Start -->
+        <section class="eye-care-center">
+            <div class="container">
+                <div class="eye-care-center__top">
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="eye-care-center__top-left">
+                                <div class="section-title text-left sec-title-animation animation-style2">
+                                    <div class="section-title__tagline-box">
+                                        <span class="icon-pharmacy"></span>
+                                        <p class="section-title__tagline">A Trusted Destination for Holistic Care</p>
+                                    </div>
+                                    <h2 class="section-title__title title-animation">We here to help your
+                                        <span>Recover Better</span>
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="eye-care-center__top-right">
+                                <p class="eye-care-center__top-text">Our center offers a full spectrum of OPD and IPD
+                                    services, combining modern facilities with medical expertise in neuro, ortho,
+                                    geriatrics, medicine, physiotherapy, and in-house pharmacy support.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="eye-care-center__bottom">
+                    <div class="row">
+                        <!--Eye Care Center Single Start -->
+                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay="100ms">
+                            <div class="eye-care-center__single">
+                                <div class="eye-care-center__icon">
+                                    <div class="lt-icon"><img src="assets/images/icon/neuron.png" alt="Comprehensive Care"
+                                        style="height:50px;width:50px;"></div>
+                                </div>
+                                <div class="eye-care-center__inner">
+                                    <h3 class="eye-care-center__title"><a href="#">Neurology</a></h3>
+                                    <p class="eye-care-center__text">Advanced neuro-rehabilitation for stroke,
+                                        paralysis, and spinal conditions with integrated recovery planning.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Eye Care Center Single End -->
+                        <!--Eye Care Center Single Start -->
+                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay="200ms">
+                            <div class="eye-care-center__single">
+                                <div class="eye-care-center__icon">
+                                    <div class="lt-icon"><img src="assets/images/icon/arthritis.png" alt="Comprehensive Care"
+                                        style="height:50px;width:50px;"></div>
+                                </div>
+                                <div class="eye-care-center__inner">
+                                    <h3 class="eye-care-center__title"><a href="#">Orthopedics</a></h3>
+                                    <p class="eye-care-center__text">Recovery-focused care for fractures, joint
+                                        surgeries, and musculoskeletal issues across OPD and IPD.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Eye Care Center Single End -->
+                        <!--Eye Care Center Single Start -->
+                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay="300ms">
+                            <div class="eye-care-center__single">
+                                <div class="eye-care-center__icon">
+                                    <div class="lt-icon"><img src="assets/images/icon/physical-therapy.png" alt="Comprehensive Care"
+                                        style="height:50px;width:50px;"></div>
+                                </div>
+                                <div class="eye-care-center__inner">
+                                    <h3 class="eye-care-center__title"><a href="#">Physiotherapy & Rehabilitation</a>
+                                    </h3>
+                                    <p class="eye-care-center__text">Customized therapy programs to improve mobility,
+                                        confidence, and long-term quality of life.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Eye Care Center Single End -->
+                        <!--Eye Care Center Single Start -->
+                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay="400ms">
+                            <div class="eye-care-center__single">
+                                <div class="eye-care-center__open-hours">
+                                    <h4 class="eye-care-center__open-hours-title">Operating Hours</h4>
+                                    <ul class="eye-care-center__open-hours-list">
+                                        <li>
+                                            <p>OPD (Mon - Sat):</p>
+                                            <span>10:00 AM - 5:00 PM</span>
+                                        </li>
+                                        <li>
+                                            <p>IPD:</p>
+                                            <span>24x7</span>
+                                        </li>
+                                        <li>
+                                            <p>Emergency:</p>
+                                            <span>24x7</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Eye Care Center Single End -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Eye Care Center End -->
+
+
+        <!-- Start Faq One Instyle2 -->
+        <section class="faq-one faq-one--instyle2 faq-one--instyle3">
+            <div class="faq-one--instyle2__bg"
+                style="background-image: url(assets/images/backgrounds/faq-one--instyle2__bg.jpg);">
+            </div>
+            <div class="faq-one--instyle2__bg2"
+                style="background-image: url(assets/images/shapes/site-footer__shape-bg-2.jpg);">
+            </div>
+            <div class="container">
+                <div class="faq-one__right faq-one__right--instyle2">
+                    <div class="faq-one__right--instyle2-call">
+                        <div class="faq-one__right--instyle2-call-bg"
+                            style="background-image: url(assets/images/shapes/faq-one--instyle2__shape-1.png);">
+                        </div>
+                        <div class="faq-one__right--instyle2-question">
+                            <div class="icon">
+                                <i class="fa fa-solid fa-question"></i>
+                            </div>
+                            <div class="title">
+                                <h4>Need OSKY or Care Guidance?</h4>
+                                <p>
+                                    <a href="mailto:Info@waytohealthcare.com">
+                                        Info@waytohealthcare.com
+                                    </a>
+                                </p>
+                            </div>
+                            <div class="btn">
+                                <a href="#">
+                                    <span class="fas fa-arrow-right"></span>
+                                    More Answers
+                                </a>
+                            </div>
+                        </div>
+                        <div class="faq-one__right--instyle2-call-inner">
+                            <div class="faq-one__right--instyle2-call-title">
+                                <h3>Need Immediate Healthcare Support?</h3>
+                            </div>
+                            <div class="faq-one__right--instyle2-call-btn">
+                                <a href="tel:+919090050151" class="thm-btn">
+                                    <span class="fas fa-arrow-right"></span>
+                                    Call Us @ +91 9090050151
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-one__content-box-outer">
+                        <div class="section-title text-left sec-title-animation animation-style1">
+                            <div class="section-title__tagline-box">
+                                <span class="icon-pharmacy"></span>
+                                <p class="section-title__tagline">OSKY Project</p>
+                            </div>
+                            <h2 class="section-title__title title-animation">Core Values that <span>Drive OSKY</span>
+                            </h2>
+                        </div>
+                        <div class="faq-one__content-box">
+                            <div class="accrodion-grp" data-grp-name="faq-one-accrodion">
+                                <div class="accrodion">
+                                    <div class="accrodion-title">
+                                        <h4>Accessibility</h4>
+                                    </div>
+                                    <div class="accrodion-content">
+                                        <div class="inner">
+                                            <p>Making healthcare services easily available to everyone, regardless of
+                                                location or financial status.</p>
+                                        </div><!-- /.inner -->
+                                    </div>
+                                </div>
+                                <div class="accrodion active">
+                                    <div class="accrodion-title">
+                                        <h4>Empathy</h4>
+                                    </div>
+                                    <div class="accrodion-content">
+                                        <div class="inner">
+                                            <p>Committed to the well-being and health of every member with a
+                                                compassionate, patient-first approach.</p>
+                                        </div><!-- /.inner -->
+                                    </div>
+                                </div>
+                                <div class="accrodion">
+                                    <div class="accrodion-title">
+                                        <h4>Integrity</h4>
+                                    </div>
+                                    <div class="accrodion-content">
+                                        <div class="inner">
+                                            <p>Upholding transparency and ethical standards in every service and
+                                                interaction with our members.</p>
+                                        </div><!-- /.inner -->
+                                    </div>
+                                </div>
+                                <div class="accrodion">
+                                    <div class="accrodion-title">
+                                        <h4>Innovation & Community Focus</h4>
+                                    </div>
+                                    <div class="accrodion-content">
+                                        <div class="inner">
+                                            <p>Continuously improving services and technology while ensuring health
+                                                benefits reach and positively impact the community.</p>
+                                        </div><!-- /.inner -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="faq-one--instyle2__btn">
+                                <a href="contact.html" class="thm-btn">
+                                    <span class="fas fa-arrow-right"></span>
+                                    Contact Our Team
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Faq One Instyle2 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--Newsletter One Start-->
+        <section class="newsletter-one">
+            <div class="container">
+                <div class="newsletter-one__inner">
+                    <div class="newsletter-one__img">
+                        <img src="assets/images/resources/newsletter-one-img-1.png" alt="">
+                    </div>
+                    <div class="newsletter-one__left">
+                        <div class="newsletter-one__title-box">
+                            <h2 class="newsletter-one__title">Ready to Begin Your Journey to Wellness?</h2>
+                            <p class="newsletter-one__text">Whether you are a patient, partner, or future team member,
+                                we are here to support your next step.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="newsletter-one__form-box">
+                        <form class="newsletter-one__form">
+                            <div class="newsletter-one__input">
+                                <input type="email" placeholder="Email Address">
+                            </div>
+                            <button type="submit" class="newsletter-one__btn">
+                                Subscribe </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Newsletter One End-->
+
+        <!--Site Footer Three Start-->
+        <footer class="site-footer-three">
+            <div class="site-footer-three__shape-bg"
+                style="background-image: url(assets/images/shapes/site-footer-three-shape-bg.png);"></div>
+            <div class="site-footer-three__top">
+                <div class="container">
+                    <div class="site-footer-three__top-inner">
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                                <div class="site-footer-three__about">
+                                    <h4 class="site-footer-three__title">About Us</h4>
+                                    <p class="site-footer-three__about-text">we offer a wide range of specialized
+                                        medical departments to meet the diverse health needs of our patients.</p>
+                                    <div class="site-footer-three__social">
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#"><i class="fab fa-facebook"></i></a>
+                                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                                <div class="site-footer-three__usefull-links">
+                                    <h4 class="site-footer-three__title">Quick Links</h4>
+                                    <ul class="site-footer-three__links-list list-unstyled">
+                                        <li><a href="home-nursing.html">Home Nursing</a></li>
+                                        <li><a href="home-patient-care-attendant.html">Patient Rehab</a></li>
+                                        <li><a href="physiotherapy.html">Physiotherapy</a></li>
+                                        <li><a href="home-icu-setup.html">Emergency Critical Care</a></li>
+                                        <li><a href="home-doctor-visit.html">Neuro OPD Consultation</a></li>
+                                        <li><a href="home-doctor-visit.html">Ortho Consultation</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
+                                <div class="site-footer-three__resources">
+                                    <h4 class="site-footer-three__title">Our Service</h4>
+                                    <ul class="site-footer-three__links-list list-unstyled">
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="#">Our Team</a></li>
+                                        <li><a href="blog.html">News & Articles</a></li>
+                                        <li><a href="contact.html">Contact Us</a></li>
+                                        <li><a href="#">Terms & Conditions</a></li>
+                                        <li><a href="#">Privacy Policy</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
+                                <div class="site-footer-three__working-hours">
+                                    <h3 class="site-footer-three__title">Our Working Hours</h3>
+                                    <ul class="site-footer-three__working-hours-list">
+                                        <li>
+                                            <p class="site-footer-three__working-day">Saturday:</p>
+                                            <p class="site-footer-three__working-time">9:00 AM – 12:00 PM</p>
+                                        </li>
+                                        <li>
+                                            <p class="site-footer-three__working-day">Sunday:</p>
+                                            <p class="site-footer-three__working-time">9:00 AM – 12:00 PM</p>
+                                        </li>
+                                        <li>
+                                            <p class="site-footer-three__working-day">Monday:</p>
+                                            <p class="site-footer-three__working-time">9:00 AM – 12:00 PM</p>
+                                        </li>
+                                        <li>
+                                            <p class="site-footer-three__working-day">Wednesday:</p>
+                                            <p class="site-footer-three__working-time">9:00 AM – 12:00 PM</p>
+                                        </li>
+                                        <li>
+                                            <p class="site-footer-three__working-day">Thursday:</p>
+                                            <p class="site-footer-three__working-time">9:00 AM – 12:00 PM</p>
+                                        </li>
+                                        <li>
+                                            <p class="site-footer-three__working-day">Friday:</p>
+                                            <p class="site-footer-three__working-time">9:00 AM – 12:00 PM</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="site-footer-three__bottom">
+                <div class="site-footer-three__logo">
+                    <a href="index.html"><img src="assets/images/resources/ltwaytohealth.webp"" alt=""></a>
+                </div>
+                <div class=" site-footer-three__bottom-outer">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="site-footer-three__bottom-inner">
+                                        <div class="site-footer-three__copyright">
+                                            <p class="site-footer-three__copyright-text">© 2026 <a
+                                                    href="">Scriptfusions.</a> All
+                                                Rights
+                                                Reserved.</p>
+                                        </div>
+                                        <ul class="site-footer-three__bottom-menu">
+                                            <li><a href="about-v-3.html">Privacy</a></li>
+                                            <li><a href="about-v-2.html">Policy</a></li>
+                                            <li><a href="about-v-3.html">Contact Us</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </footer>
+        <!--Site Footer Three End-->
+
+
+
+
+    </div><!-- /.page-wrapper -->
+
+
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <!-- /.mobile-nav__overlay -->
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+
+            <div class="logo-box">
+                <a href="index.html" aria-label="logo image"><img
+                        src="assets/images/resources/ltwaytohealth.webp"" width=" 150" alt="" /></a>
+            </div>
+            <!-- /.logo-box -->
+            <div class="mobile-nav__container"></div>
+            <!-- /.mobile-nav__container -->
+
+            <ul class="mobile-nav__contact list-unstyled">
+                <li>
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:Info@waytohealthcare.com">Info@waytohealthcare.com</a>
+                </li>
+                <li>
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:(+91) 9090050151">(+91) 9090050151</a>
+                </li>
+            </ul><!-- /.mobile-nav__contact -->
+            <div class="mobile-nav__top">
+                <div class="mobile-nav__social">
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-facebook-square"></a>
+                    <a href="#" class="fab fa-pinterest-p"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                </div><!-- /.mobile-nav__social -->
+            </div><!-- /.mobile-nav__top -->
+
+
+
+        </div>
+        <!-- /.mobile-nav__content -->
+    </div>
+    <!-- /.mobile-nav__wrapper -->
+
+    <!-- Search Popup -->
+    <div class="search-popup">
+        <div class="color-layer"></div>
+        <button class="close-search"><span class="far fa-times fa-fw"></span></button>
+        <form method="post" action="https://scriptfusions.mnsithub.com/html/mediplace/main-html/blog.html">
+            <div class="form-group">
+                <input type="search" name="search-field" value="" placeholder="Search Here" required="">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+    </div>
+    <!-- End Search Popup -->
+
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top">
+        <span class="scroll-to-top__wrapper"><span class="scroll-to-top__inner"></span></span>
+        <span class="scroll-to-top__text"> Go Back Top</span>
+    </a>
+
+
+    <script src="assets/js/jquery-latest.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jarallax.min.js"></script>
+    <script src="assets/js/jquery.appear.min.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
+    <script src="assets/js/jquery.circle-progress.min.js"></script>
+    <script src="assets/js/knob.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.validate.min.js"></script>
+    <script src="assets/js/odometer.min.js"></script>
+    <script src="assets/js/wow.js"></script>
+    <script src="assets/js/isotope.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/jquery-ui.js"></script>
+    <script src="assets/js/jquery.circleType.js"></script>
+    <script src="assets/js/jquery.lettering.min.js"></script>
+    <script src="assets/js/jquery.fittext.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/marquee.min.js"></script>
+    <script src="assets/js/countdown.min.js"></script>
+    <script src="assets/js/jquery-sidebar-content.js"></script>
+    <script src="assets/js/twentytwenty.js"></script>
+    <script src="assets/js/jquery.event.move.js"></script>
+    <script src="assets/js/aos.js"></script>
+    <script src="assets/js/timePicker.js"></script>
+    <script src="assets/js/gsap/gsap.js"></script>
+    <script src="assets/js/gsap/ScrollTrigger.js"></script>
+    <script src="assets/js/gsap/SplitText.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var servicesSliderEl = document.querySelector(".lt-services-slider");
+
+            if (servicesSliderEl && typeof Swiper !== "undefined") {
+                new Swiper(".lt-services-slider", {
+                    slidesPerView: 1,
+                    spaceBetween: 24,
+                    loop: true,
+                    navigation: {
+                        nextEl: ".lt-services-next",
+                        prevEl: ".lt-services-prev"
+                    },
+                    breakpoints: {
+                        768: {
+                            slidesPerView: 2
+                        },
+                        1200: {
+                            slidesPerView: 3
+                        }
+                    }
+                });
+            }
+
+            var gapCards = document.querySelectorAll(".lt-gap-card");
+            var gapTitle = document.getElementById("lt-gap-detail-title");
+            var gapText = document.getElementById("lt-gap-detail-text");
+            var gapImage = document.getElementById("lt-gap-detail-image");
+            var gapPoints = document.getElementById("lt-gap-detail-points");
+            var gapBadge = document.getElementById("lt-gap-detail-badge");
+            var gapStat = document.getElementById("lt-gap-detail-stat");
+            var gapStatLabel = document.getElementById("lt-gap-detail-stat-label");
+            var gapDetailCard = document.getElementById("lt-gap-detail-card");
+
+            if (gapCards.length && gapTitle && gapText && gapImage && gapPoints && gapBadge && gapStat && gapStatLabel && gapDetailCard) {
+                gapCards.forEach(function (card) {
+                    var activateCard = function () {
+                        gapCards.forEach(function (item) {
+                            item.classList.remove("is-active");
+                        });
+
+                        card.classList.add("is-active");
+                        gapDetailCard.classList.add("is-switching");
+                        gapTitle.textContent = card.getAttribute("data-gap-title") || "";
+                        gapText.textContent = card.getAttribute("data-gap-text") || "";
+                        gapImage.src = card.getAttribute("data-gap-image") || "";
+                        gapImage.alt = card.getAttribute("data-gap-title") || "";
+                        gapBadge.querySelector("span").textContent = card.getAttribute("data-gap-badge") || "";
+                        gapStat.textContent = card.getAttribute("data-gap-stat") || "";
+                        gapStatLabel.textContent = card.getAttribute("data-gap-stat-label") || "";
+
+                        var points = (card.getAttribute("data-gap-points") || "").split("|").filter(Boolean);
+                        gapPoints.innerHTML = points.map(function (point) {
+                            return '<li><i class="fas fa-check"></i><span>' + point + '</span></li>';
+                        }).join("");
+
+                        window.clearTimeout(gapDetailCard._switchTimer);
+                        gapDetailCard._switchTimer = window.setTimeout(function () {
+                            gapDetailCard.classList.remove("is-switching");
+                        }, 180);
+                    };
+
+                    card.addEventListener("mouseenter", activateCard);
+                    card.addEventListener("click", activateCard);
+                });
+            }
+
+            var chatPanel = document.getElementById("ltChatPanel");
+            var chatToggle = document.getElementById("ltChatToggle");
+            var chatClose = document.getElementById("ltChatClose");
+            var chatForm = document.getElementById("ltChatForm");
+            var chatInput = document.getElementById("ltChatInput");
+            var chatMessages = document.getElementById("ltChatMessages");
+
+            var addMsg = function (text, type) {
+                if (!chatMessages) return;
+                var div = document.createElement("div");
+                div.className = "lt-chatbot-msg " + type;
+                div.textContent = text;
+                chatMessages.appendChild(div);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            };
+
+            var botReply = function (message) {
+                var msg = message.toLowerCase();
+                if (msg.includes("service")) return "We provide Home Nursing, Physiotherapy, Rehab, Emergency Critical Care, and specialist consultations.";
+                if (msg.includes("appointment") || msg.includes("book")) return "To book an appointment, please call +91 9090050151 or submit the contact form on this site.";
+                if (msg.includes("hour") || msg.includes("timing")) return "Operating hours: OPD Mon-Sat 10 AM to 5 PM. IPD and Emergency are available 24x7.";
+                if (msg.includes("location") || msg.includes("address")) return "We are at Plot No-353/2324, Near UCO Bank Kolathia Square, AMRI Hospital Road, Khandagiri, Bhubaneswar - 30.";
+                if (msg.includes("phone") || msg.includes("call") || msg.includes("contact")) return "You can reach us at +91 9090050151 or email Info@waytohealthcare.com.";
+                return "Thanks for your message. Our team will guide you. You can also call +91 9090050151 for quick support.";
+            };
+
+            if (chatToggle && chatPanel) {
+                chatToggle.addEventListener("click", function () {
+                    chatPanel.classList.toggle("is-open");
+                });
+            }
+
+            if (chatClose && chatPanel) {
+                chatClose.addEventListener("click", function () {
+                    chatPanel.classList.remove("is-open");
+                });
+            }
+
+            if (chatForm && chatInput) {
+                chatForm.addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    var value = chatInput.value.trim();
+                    if (!value) return;
+                    addMsg(value, "user");
+                    chatInput.value = "";
+                    window.setTimeout(function () {
+                        addMsg(botReply(value), "bot");
+                    }, 300);
+                });
+            }
+        });
+    </script>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+
+</html>

@@ -36,6 +36,8 @@ export const subpagesHomeAlignCss = `
 .lt-home-type .fr-hero,
 .lt-home-type .op-hero,
 .lt-home-type .pk-hero,
+.lt-home-type .opp-hero,
+.lt-home-type .ipp-hero,
 .lt-home-type section.lt-hero-home {
   position: relative !important;
   display: block !important;
@@ -57,6 +59,8 @@ export const subpagesHomeAlignCss = `
   .lt-home-type .fr-hero,
   .lt-home-type .op-hero,
   .lt-home-type .pk-hero,
+  .lt-home-type .opp-hero,
+  .lt-home-type .ipp-hero,
   .lt-home-type section.lt-hero-home {
     padding: 72px 0 80px !important;
   }
@@ -66,6 +70,8 @@ export const subpagesHomeAlignCss = `
 .lt-home-type .fr-hero::before,
 .lt-home-type .op-hero::before,
 .lt-home-type .pk-hero::before,
+.lt-home-type .opp-hero::before,
+.lt-home-type .ipp-hero::before,
 .lt-home-type section.lt-hero-home::before {
   content: "";
   position: absolute;
@@ -128,6 +134,8 @@ export const subpagesHomeAlignCss = `
 .lt-home-type .fr-hero .fr-container,
 .lt-home-type .op-hero .op-wrap,
 .lt-home-type .pk-hero .pk-hero-inner,
+.lt-home-type .opp-hero .opp-hero-inner,
+.lt-home-type .ipp-hero .ipp-hero-inner,
 .lt-home-type section.lt-hero-home > div {
   position: relative;
   z-index: 2;
@@ -135,7 +143,9 @@ export const subpagesHomeAlignCss = `
 .lt-home-type .ok-hero::after,
 .lt-home-type .fr-hero::after,
 .lt-home-type .op-hero::after,
-.lt-home-type .pk-hero::after {
+.lt-home-type .pk-hero::after,
+.lt-home-type .opp-hero::after,
+.lt-home-type .ipp-hero::after {
   display: none !important;
 }
 .lt-home-type .ok-hero-bubble,
@@ -146,7 +156,9 @@ export const subpagesHomeAlignCss = `
 .lt-home-type .hp-hero-text,
 .lt-home-type .fr-hero-text,
 .lt-home-type .op-hero-text,
-.lt-home-type .pk-hero-text {
+.lt-home-type .pk-hero-text,
+.lt-home-type .opp-hero-text,
+.lt-home-type .ipp-hero-text {
   position: relative;
   z-index: 1;
 }
@@ -158,6 +170,8 @@ export const subpagesHomeAlignCss = `
 .lt-home-type .fr-hero-text h1,
 .lt-home-type .op-hero-text h1,
 .lt-home-type .pk-hero-text h1,
+.lt-home-type .opp-hero-text h1,
+.lt-home-type .ipp-hero-text h1,
 .lt-home-type section.lt-hero-home h1 {
   font-size: clamp(36px, 5vw, 72px) !important;
   font-weight: 700 !important;
@@ -167,7 +181,9 @@ export const subpagesHomeAlignCss = `
   color: #0f2f4f !important;
   font-family: "Space Grotesk", sans-serif !important;
 }
-.lt-home-type .pk-hero-text h1 {
+.lt-home-type .pk-hero-text h1,
+.lt-home-type .opp-hero-text h1,
+.lt-home-type .ipp-hero-text h1 {
   overflow-wrap: break-word !important;
   word-wrap: break-word !important;
   max-width: 100% !important;
@@ -179,6 +195,8 @@ export const subpagesHomeAlignCss = `
 .lt-home-type .fr-hero-text h1 span,
 .lt-home-type .op-hero-text h1 span,
 .lt-home-type .pk-hero-text h1 span,
+.lt-home-type .opp-hero-text h1 span,
+.lt-home-type .ipp-hero-text h1 span,
 .lt-home-type section.lt-hero-home h1 span {
   color: var(--mediplace-base) !important;
   font-style: normal;
@@ -189,7 +207,9 @@ export const subpagesHomeAlignCss = `
 .lt-home-type .ok-hero-text p,
 .lt-home-type .fr-hero-text p,
 .lt-home-type .op-hero-text p,
-.lt-home-type .pk-hero-text p {
+.lt-home-type .pk-hero-text p,
+.lt-home-type .opp-hero-text p,
+.lt-home-type .ipp-hero-text p {
   font-weight: 500 !important;
   font-size: clamp(15px, 1.2vw, 18px) !important;
   line-height: 1.65 !important;
@@ -202,7 +222,9 @@ export const subpagesHomeAlignCss = `
 .lt-home-type .ok-heading,
 .lt-home-type .fr-heading,
 .lt-home-type .op-title,
-.lt-home-type.pk-page h2 {
+.lt-home-type.pk-page h2,
+.lt-home-type.opp-page h2,
+.lt-home-type.ipp-page h2 {
   font-family: "Space Grotesk", sans-serif !important;
   color: #123555 !important;
 }
@@ -308,7 +330,9 @@ export const subpagesHomeAlignCss = `
   animation: none !important;
   box-shadow: none !important;
 }
-.lt-home-type .pk-hero-inner {
+.lt-home-type .pk-hero-inner,
+.lt-home-type .opp-hero-inner,
+.lt-home-type .ipp-hero-inner {
   display: grid !important;
   grid-template-columns: minmax(0, 1fr) minmax(220px, min(42vw, 520px)) !important;
   align-items: center !important;
@@ -318,16 +342,22 @@ export const subpagesHomeAlignCss = `
   max-width: 100% !important;
   box-sizing: border-box !important;
 }
-.lt-home-type .pk-hero-text {
+.lt-home-type .pk-hero-text,
+.lt-home-type .opp-hero-text,
+.lt-home-type .ipp-hero-text {
   min-width: 0 !important;
   max-width: 100% !important;
   width: 100% !important;
 }
-.lt-home-type .pk-hero-text > div {
+.lt-home-type .pk-hero-text > div,
+.lt-home-type .opp-hero-text > div,
+.lt-home-type .ipp-hero-text > div {
   min-width: 0 !important;
   max-width: 100% !important;
 }
-.lt-home-type .pk-hero-media {
+.lt-home-type .pk-hero-media,
+.lt-home-type .opp-hero-media,
+.lt-home-type .ipp-hero-media {
   min-width: 0 !important;
   width: 100% !important;
   max-width: 100% !important;
@@ -336,7 +366,9 @@ export const subpagesHomeAlignCss = `
   align-items: center !important;
   justify-self: stretch !important;
 }
-.lt-home-type .pk-hero-img {
+.lt-home-type .pk-hero-img,
+.lt-home-type .opp-hero-img,
+.lt-home-type .ipp-hero-img {
   width: 100% !important;
   max-width: min(520px, 100%) !important;
   aspect-ratio: 1 !important;
@@ -348,7 +380,9 @@ export const subpagesHomeAlignCss = `
   flex-shrink: 0 !important;
   box-sizing: border-box !important;
 }
-.lt-home-type .pk-hero-img img {
+.lt-home-type .pk-hero-img img,
+.lt-home-type .opp-hero-img img,
+.lt-home-type .ipp-hero-img img {
   width: 100% !important;
   height: 100% !important;
   aspect-ratio: 1 !important;
@@ -358,30 +392,58 @@ export const subpagesHomeAlignCss = `
   animation: none !important;
   box-shadow: none !important;
 }
+.lt-home-type .opp-hero-kicker,
+.lt-home-type .ipp-hero-kicker {
+  display: inline-block !important;
+  font-family: "Manrope", sans-serif !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: var(--mediplace-base) !important;
+  background: rgba(5, 189, 236, 0.1) !important;
+  padding: 6px 14px !important;
+  border-radius: 999px !important;
+  margin-bottom: 18px !important;
+}
 @media (min-width: 1200px) {
-  .lt-home-type .pk-hero-inner {
+  .lt-home-type .pk-hero-inner,
+  .lt-home-type .opp-hero-inner,
+  .lt-home-type .ipp-hero-inner {
     grid-template-columns: minmax(0, 1fr) minmax(280px, min(520px, 38vw)) !important;
   }
-  .lt-home-type .pk-hero-img {
+  .lt-home-type .pk-hero-img,
+  .lt-home-type .opp-hero-img,
+  .lt-home-type .ipp-hero-img {
     max-width: min(610px, 100%) !important;
   }
 }
 @media (max-width: 991px) {
-  .lt-home-type .pk-hero-inner {
+  .lt-home-type .pk-hero-inner,
+  .lt-home-type .opp-hero-inner,
+  .lt-home-type .ipp-hero-inner {
     grid-template-columns: 1fr !important;
     justify-items: center !important;
     text-align: center !important;
   }
-  .lt-home-type .pk-hero-text {
+  .lt-home-type .pk-hero-text,
+  .lt-home-type .opp-hero-text,
+  .lt-home-type .ipp-hero-text {
     order: 0 !important;
   }
-  .lt-home-type .pk-hero-media {
+  .lt-home-type .pk-hero-media,
+  .lt-home-type .opp-hero-media,
+  .lt-home-type .ipp-hero-media {
     order: 1 !important;
   }
-  .lt-home-type .pk-hero-img {
+  .lt-home-type .pk-hero-img,
+  .lt-home-type .opp-hero-img,
+  .lt-home-type .ipp-hero-img {
     max-width: min(420px, 88vw) !important;
   }
-  .lt-home-type .pk-hero-text p {
+  .lt-home-type .pk-hero-text p,
+  .lt-home-type .opp-hero-text p,
+  .lt-home-type .ipp-hero-text p {
     margin-left: auto !important;
     margin-right: auto !important;
   }
@@ -397,7 +459,9 @@ export const subpagesHomeAlignCss = `
 .lt-home-type .fr-btn-green,
 .lt-home-type .op-btn-teal,
 .lt-home-type .op-btn-green,
-.lt-home-type .pk-cta-btn {
+.lt-home-type .pk-cta-btn,
+.lt-home-type .opp-cta-btn,
+.lt-home-type .ipp-cta-btn {
   background: linear-gradient(135deg, #05bdec 0%, #16a392 100%) !important;
   border: 0 !important;
   border-radius: 10px !important;
@@ -413,7 +477,9 @@ export const subpagesHomeAlignCss = `
 .lt-home-type .fr-btn-green:hover,
 .lt-home-type .op-btn-teal:hover,
 .lt-home-type .op-btn-green:hover,
-.lt-home-type .pk-cta-btn:hover {
+.lt-home-type .pk-cta-btn:hover,
+.lt-home-type .opp-cta-btn:hover,
+.lt-home-type .ipp-cta-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 14px 26px rgba(103, 148, 53, 0.28) !important;
 }
